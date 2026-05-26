@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:image" content="" />
     <meta property="og:title" content="IEEE RCAR 2026">
-    <meta property="og:description" content="Conference description">
+    <meta property="og:description" content="2026 IEEE International Conference on Real-time Computing and Robotics">
     <meta property="og:type" content="website">
     <meta property="og:url" content="">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
+
     <link href="./CSS/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="./CSS/style.css" />
     <link rel="stylesheet" href="./CSS/animate.css" />
@@ -22,10 +23,39 @@
     <link href="./CSS/bootstrap-theme.min.css" rel="stylesheet" />
     <link href='https://fonts.googleapis.com/css?family=Armata&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="./CSS/swiper.min.css"/>
+
     <style>
-        .hero-title { font-size: 34pt; margin-top: 10px; color: rgb(68, 73, 75); }
-        .hero-subtitle { font-size: 16pt; }
-        .hero-actions a { margin: 6px 6px; }
+        :root {
+            --rcar-blue: #1677b3;
+            --rcar-teal: #1aa39a;
+            --rcar-deep: #27445c;
+            --rcar-sand: #f7e7c1;
+            --rcar-mint: #eaf8f5;
+            --rcar-sky: #eef8ff;
+            --rcar-gray: #5f6b73;
+            --rcar-line: #d9e5e8;
+        }
+
+        body {
+            background: linear-gradient(180deg, #ffffff 0%, #f7fbfc 45%, #ffffff 100%);
+        }
+
+        .hero-title {
+            font-size: 34pt;
+            margin-top: 10px;
+            color: rgb(68, 73, 75);
+            letter-spacing: 1px;
+        }
+
+        .hero-subtitle {
+            font-size: 16pt;
+            color: #222;
+        }
+
+        .hero-actions a {
+            margin: 6px 6px;
+        }
+
         table.gridtable {
             font-family: verdana,arial,sans-serif;
             font-size:15px;
@@ -35,6 +65,7 @@
             border-collapse: collapse;
             width: 100%;
         }
+
         table.gridtable th, table.gridtable td {
             border-width: 1px;
             padding: 8px;
@@ -42,12 +73,319 @@
             border-color: #666666;
             background-color: #ffffff;
         }
-        table.gridtable th { background-color: #dedede; }
+
+        table.gridtable th {
+            background-color: #dedede;
+        }
+
+        .site-section {
+            margin-top: 34px;
+        }
+
+        .section-title {
+            font-size: 28pt;
+            color: var(--rcar-deep);
+            margin-top: 10px;
+            margin-bottom: 18px;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        .section-title:after {
+            content: "";
+            display: block;
+            width: 70px;
+            height: 3px;
+            margin: 12px auto 0 auto;
+            border-radius: 3px;
+            background: linear-gradient(90deg, var(--rcar-blue), var(--rcar-teal));
+        }
+
+        .sub-section-title {
+            font-size: 21pt;
+            color: var(--rcar-deep);
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .lead-text {
+            font-size: 15pt;
+            line-height: 1.75;
+            color: #2c3338;
+            text-align: left;
+        }
+
+        .intro-panel {
+            border: 1px solid var(--rcar-line);
+            border-radius: 12px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, #f7fcff 0%, #f1fbf8 100%);
+            box-shadow: 0 8px 24px rgba(20, 80, 100, 0.08);
+            margin-top: 18px;
+            margin-bottom: 20px;
+        }
+
+        .soft-note {
+            border-left: 5px solid var(--rcar-teal);
+            background-color: #f5fbfa;
+            padding: 14px 18px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            font-size: 14.5pt;
+            line-height: 1.7;
+            color: #2f3e46;
+            text-align: left;
+        }
+
+        .quick-facts {
+            margin-top: 16px;
+        }
+
+        .fact-item {
+            background: #ffffff;
+            border: 1px solid var(--rcar-line);
+            border-radius: 10px;
+            padding: 14px 16px;
+            margin-bottom: 12px;
+            min-height: 98px;
+            box-shadow: 0 5px 16px rgba(30, 80, 90, 0.06);
+            text-align: left;
+        }
+
+        .fact-label {
+            display: block;
+            font-size: 11pt;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--rcar-teal);
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .fact-value {
+            font-size: 14.5pt;
+            color: var(--rcar-deep);
+            line-height: 1.45;
+        }
+
+        .island-card {
+            position: relative;
+            border: 1px solid var(--rcar-line);
+            border-radius: 14px;
+            padding: 20px 20px 18px 20px;
+            margin-top: 12px;
+            margin-bottom: 12px;
+            background: #ffffff;
+            min-height: 250px;
+            box-shadow: 0 10px 24px rgba(30, 70, 90, 0.08);
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .island-card:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--rcar-blue), var(--rcar-teal));
+        }
+
+        .island-card h3 {
+            margin-top: 6px;
+            margin-bottom: 10px;
+            color: var(--rcar-deep);
+            font-size: 18pt;
+            font-weight: bold;
+            letter-spacing: 0.2px;
+        }
+
+        .island-card p {
+            font-size: 13.5pt;
+            line-height: 1.65;
+            color: #34444c;
+            text-align: left;
+            margin-bottom: 0;
+        }
+
+        .place-card {
+            border: 1px solid var(--rcar-line);
+            border-radius: 14px;
+            padding: 20px 22px;
+            margin-top: 13px;
+            margin-bottom: 13px;
+            background: #ffffff;
+            box-shadow: 0 8px 22px rgba(30, 70, 90, 0.07);
+            text-align: left;
+        }
+
+        .place-card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 18pt;
+            font-weight: bold;
+            color: var(--rcar-deep);
+        }
+
+        .place-card p {
+            font-size: 14pt;
+            line-height: 1.7;
+            color: #34444c;
+            text-align: left;
+            margin-bottom: 0;
+        }
+
+        .place-card.ocean {
+            background: linear-gradient(135deg, #ffffff 0%, #eefaff 100%);
+        }
+
+        .place-card.forest {
+            background: linear-gradient(135deg, #ffffff 0%, #effaf0 100%);
+        }
+
+        .place-card.sand {
+            background: linear-gradient(135deg, #ffffff 0%, #fff7e8 100%);
+        }
+
+        .culture-strip {
+            border-radius: 16px;
+            padding: 24px;
+            background: linear-gradient(135deg, #ecfbf9 0%, #fff8e8 100%);
+            border: 1px solid #dbece9;
+            box-shadow: 0 10px 24px rgba(30, 70, 90, 0.06);
+        }
+
+        .culture-item {
+            padding: 14px 16px;
+            margin-top: 10px;
+            background: rgba(255,255,255,0.78);
+            border-radius: 12px;
+            border: 1px solid rgba(220, 235, 235, 0.9);
+            min-height: 190px;
+            text-align: left;
+        }
+
+        .culture-item h3 {
+            margin-top: 0;
+            color: var(--rcar-deep);
+            font-size: 17pt;
+            font-weight: bold;
+        }
+
+        .culture-item p {
+            font-size: 13.5pt;
+            line-height: 1.65;
+            color: #34444c;
+            text-align: left;
+        }
+
+        .planning-list {
+            font-size: 15pt;
+            line-height: 1.7;
+            color: #2f3e46;
+            text-align: left;
+        }
+
+        .planning-list li {
+            margin-top: 8px;
+        }
+
+        .planning-panel {
+            border-radius: 14px;
+            padding: 22px 24px;
+            background: #ffffff;
+            border: 1px solid var(--rcar-line);
+            box-shadow: 0 8px 22px rgba(30, 70, 90, 0.07);
+        }
+
+        /* Bootstrap 3 glyphicon font files may be unavailable on some deployments.
+           Use plain text carousel arrows instead of glyphicon icons. */
+        #slideshow .carousel-control {
+            background-image: none;
+            opacity: 0.88;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        #slideshow .carousel-control:hover,
+        #slideshow .carousel-control:focus {
+            opacity: 1;
+        }
+
+        #slideshow .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            z-index: 5;
+            display: inline-block;
+            font-size: 58px;
+            font-weight: 300;
+            line-height: 1;
+            color: #ffffff;
+            transform: translateY(-50%);
+        }
+
+        #slideshow .left .carousel-arrow {
+            left: 45px;
+        }
+
+        #slideshow .right .carousel-arrow {
+            right: 45px;
+        }
+
+        @media (max-width: 992px) {
+            .island-card {
+                min-height: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 26pt;
+            }
+
+            .hero-subtitle {
+                font-size: 13.5pt;
+            }
+
+            .section-title {
+                font-size: 23pt;
+            }
+
+            .sub-section-title {
+                font-size: 18pt;
+            }
+
+            .lead-text,
+            .planning-list {
+                font-size: 14pt;
+            }
+
+            .island-card p,
+            .place-card p,
+            .culture-item p {
+                font-size: 13.5pt;
+            }
+
+            #slideshow .carousel-arrow {
+                font-size: 42px;
+            }
+
+            #slideshow .left .carousel-arrow {
+                left: 22px;
+            }
+
+            #slideshow .right .carousel-arrow {
+                right: 22px;
+            }
+        }
     </style>
+
     <script src="./Scripts/jquery-1.11.3.js?v=20220702"></script>
     <script src="./Scripts/jquery.countdown.js?v=20220702"></script>
     <script src="./Scripts/viewportchecker.min.js?v=20220702"></script>
 </head>
+
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
     <include src="nav1.html"></include>
 
@@ -62,53 +400,73 @@
             <a class="btn btn-success btn-lg" href="registration.html">Registration</a>
             <a class="btn btn-info btn-lg" href="https://cmt3.research.microsoft.com/RCAR2026/Submission/Index" target="_blank" rel="noopener noreferrer">CMT Submission System</a>
             <a class="btn btn-warning btn-lg" href="glance.html">Program at a Glance</a>
-            <a class="btn btn-default btn-lg" href="travel.html">Travel Information</a>
+            <a class="btn btn-default btn-lg" href="transportation.html">Transportation</a>
         </div>
     </div>
 
     <div class="container" style="margin-top: 15px;">
         <div id="slideshow" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#slideshow" data-slide-to="0" class="active"></li>
-                            <li data-target="#slideshow" data-slide-to="1"></li>
-                            <li data-target="#slideshow" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner" role="listbox">
-                            <div class="item active"><img src="./Images/scenery.png" style="width:100%;" alt="Seychelles scenery 1"></div>
-                            <div class="item"><img src="./Images/scenery2.png" style="width:100%;" alt="Seychelles scenery 2"></div>
-                            <div class="item"><img src="./Images/scenery3.png" style="width:100%;" alt="Seychelles scenery 3"></div>
+            <ol class="carousel-indicators">
+                <li data-target="#slideshow" data-slide-to="0" class="active"></li>
+                <li data-target="#slideshow" data-slide-to="1"></li>
+                <li data-target="#slideshow" data-slide-to="2"></li>
+            </ol>
+
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="./Images/scenery.png" style="width:100%;" alt="Seychelles scenery 1">
+                </div>
+                <div class="item">
+                    <img src="./Images/scenery2.png" style="width:100%;" alt="Seychelles scenery 2">
+                </div>
+                <div class="item">
+                    <img src="./Images/scenery3.png" style="width:100%;" alt="Seychelles scenery 3">
+                </div>
             </div>
-                        <a class="left carousel-control" href="#slideshow" role="button" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="right carousel-control" href="#slideshow" role="button" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                        </a>
+
+            <a class="left carousel-control" href="#slideshow" role="button" data-slide="prev">
+                <span class="carousel-arrow" aria-hidden="true">&lsaquo;</span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#slideshow" role="button" data-slide="next">
+                <span class="carousel-arrow" aria-hidden="true">&rsaquo;</span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
     </div>
 
-    <div class="container text-justify" style="margin-top: 20px;">
-        <div class="text-center"><p style="color:rgb(68, 73, 75);font-size: 30pt;">Welcome Message</p></div>
-        <p style="font-size: 15pt;">
-            The 2026 IEEE International Conference on Real-time Computing and Robotics (IEEE RCAR 2026) will take place from
-            August 16 to August 22, 2026, in Seychelles. The conference provides an international forum for researchers,
-            engineers, and practitioners to present the latest advances in robotics, real-time computing, intelligent systems,
-            perception, control, and related applications.
-        </p>
-        <p style="font-size: 15pt;">
-            Seychelles is known for its crystal-clear waters, unique biodiversity, and beautiful island landscape.
-            RCAR 2026 aims to provide participants with a high-quality technical program and a memorable international exchange experience.
-        </p>
+    <div class="container text-justify site-section">
+        <div class="intro-panel">
+            <div class="text-center">
+                <p class="section-title">Welcome Message</p>
+            </div>
 
-        <div style="margin-top: 15px;">
-            <p style="font-size: 22pt; color: rgb(68, 73, 75); font-weight: bold;">News</p>
-            <p style="font-size: 15pt;">The submission deadline has been extended to April 20, 2026.</p>
+            <p class="lead-text">
+                The 2026 IEEE International Conference on Real-time Computing and Robotics (IEEE RCAR 2026) will take place from
+                August 16 to August 22, 2026, in Seychelles. The conference provides an international forum for researchers,
+                engineers, and practitioners to present the latest advances in robotics, real-time computing, intelligent systems,
+                perception, control, and related applications.
+            </p>
+
+            <p class="lead-text">
+                Seychelles is known for its crystal-clear waters, unique biodiversity, and beautiful island landscape.
+                RCAR 2026 aims to provide participants with a high-quality technical program and a memorable international exchange experience.
+            </p>
+
+            <div class="soft-note">
+                In addition to the technical program, RCAR 2026 offers participants an opportunity to experience an island country
+                shaped by ocean culture, Creole heritage, tropical forests, granite coastlines, and marine biodiversity.
+                Participants are encouraged to plan flights, accommodation, and optional local visits early.
+            </div>
+        </div>
+
+        <div>
+            <p class="sub-section-title">News</p>
+            <p class="lead-text">The submission deadline has been extended to April 20, 2026.</p>
         </div>
 
         <div style="margin-top: 15px;">
-            <p style="font-size: 22pt; color: rgb(68, 73, 75); font-weight: bold;">Important Dates</p>
+            <p class="sub-section-title">Important Dates</p>
             <table class="gridtable">
                 <tr><th>Item</th><th>Date</th></tr>
                 <tr><td>Full Paper Submission Deadline</td><td>April 20, 2026</td></tr>
@@ -121,22 +479,230 @@
         </div>
 
         <div style="margin-top: 15px;">
-            <p style="font-size: 22pt; color: rgb(68, 73, 75); font-weight: bold;">Current Author Actions</p>
-            <ol style="font-size: 15pt;">
-                <li style="margin-top: 8px;">Check acceptance notification and review comments.</li>
-                <li style="margin-top: 8px;">Prepare the camera-ready manuscript.</li>
-                <li style="margin-top: 8px;">Complete final submission through CMT by June 20, 2026.</li>
-                <li style="margin-top: 8px;">Complete registration by June 20, 2026.</li>
-                <li style="margin-top: 8px;">Check accommodation and travel information.</li>
+            <p class="sub-section-title">Current Author Actions</p>
+            <ol class="planning-list">
+                <li>Check acceptance notification and review comments.</li>
+                <li>Prepare the camera-ready manuscript.</li>
+                <li>Complete final submission through CMT by June 20, 2026.</li>
+                <li>Complete registration by June 20, 2026.</li>
+                <li>Check accommodation and travel information.</li>
             </ol>
+        </div>
+    </div>
+
+    <div class="container site-section">
+        <div class="text-center">
+            <p class="section-title">About Seychelles</p>
+        </div>
+
+        <p class="lead-text">
+            Seychelles is an island nation in the Indian Ocean, widely recognized for its beaches, granitic landscapes,
+            marine environment, tropical vegetation, and relaxed island atmosphere. The main international gateway is
+            Mahé, where the capital city Victoria and Seychelles International Airport are located. From Mahé, participants
+            may also explore nearby islands such as Praslin and La Digue before or after the conference.
+        </p>
+
+        <div class="row quick-facts">
+            <div class="col-md-3 col-sm-6">
+                <div class="fact-item">
+                    <span class="fact-label">Gateway</span>
+                    <span class="fact-value">Seychelles International Airport (SEZ), Mahé Island</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="fact-item">
+                    <span class="fact-label">Capital</span>
+                    <span class="fact-value">Victoria, located on Mahé Island</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="fact-item">
+                    <span class="fact-label">Experience</span>
+                    <span class="fact-value">Beaches, forests, marine parks, and island culture</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="fact-item">
+                    <span class="fact-label">Planning</span>
+                    <span class="fact-value">Early flight and hotel booking is recommended</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 8px;">
+            <div class="col-md-3 col-sm-6">
+                <div class="island-card">
+                    <h3>Mahé</h3>
+                    <p>
+                        The largest and most developed island in Seychelles. Mahé is home to Victoria, mountain viewpoints,
+                        beaches, markets, restaurants, hotels, and the main international airport.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="island-card">
+                    <h3>Praslin</h3>
+                    <p>
+                        Known for a calm island atmosphere, beaches, and the Vallée de Mai Nature Reserve. Praslin is a
+                        popular choice for nature-oriented short visits.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="island-card">
+                    <h3>La Digue</h3>
+                    <p>
+                        Famous for granite boulders, coastal scenery, beaches, bicycles, and a slower island rhythm. It is
+                        often visited together with Praslin.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="island-card">
+                    <h3>Marine Life</h3>
+                    <p>
+                        The waters around Seychelles support coral reefs, marine parks, fish, turtles, and other island
+                        ecosystems. Boat visits and snorkeling are popular optional activities.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="soft-note">
+            Optional visits and tours are not included in the conference registration fee unless explicitly announced by
+            the organizing committee. Participants should check the latest travel, ferry, weather, and entry information
+            before making independent plans.
+        </div>
+    </div>
+
+    <div class="container site-section">
+        <div class="text-center">
+            <p class="section-title">Places to Explore</p>
+        </div>
+
+        <p class="lead-text">
+            The following places are introduced only as general travel references for participants who may stay in Seychelles
+            before or after the conference. Detailed conference local programs, if any, will be announced later.
+        </p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="place-card ocean">
+                    <h3>Victoria and Mahé Island</h3>
+                    <p>
+                        Victoria is the capital of Seychelles and a practical starting point for understanding local life.
+                        Visitors may explore markets, small city landmarks, nearby beaches, and mountain routes across Mahé.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="place-card forest">
+                    <h3>Vallée de Mai, Praslin</h3>
+                    <p>
+                        Vallée de Mai is one of Seychelles' best-known natural sites and is associated with the endemic
+                        coco de mer palm and a distinctive palm forest environment.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="place-card sand">
+                    <h3>La Digue and Anse Source d'Argent</h3>
+                    <p>
+                        La Digue is often associated with beaches, granite rock formations, bicycles, and quiet coastal
+                        scenery. Anse Source d'Argent is one of the most recognizable beach landscapes in Seychelles.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="place-card ocean">
+                    <h3>Sainte Anne Marine National Park</h3>
+                    <p>
+                        Located near Mahé, Sainte Anne Marine National Park is a common choice for boat-based visits,
+                        snorkeling, and views of small islands close to the main island.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container site-section">
+        <div class="text-center">
+            <p class="section-title">Local Culture and Island Life</p>
+        </div>
+
+        <div class="culture-strip">
+            <p class="lead-text">
+                Seychelles culture reflects Creole heritage and a long history of contact across Africa, Europe, and Asia.
+                Participants may encounter a relaxed island rhythm, multilingual communication, seafood-based cuisine,
+                tropical ingredients, music, crafts, and community markets.
+            </p>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="culture-item">
+                        <h3>Creole Heritage</h3>
+                        <p>
+                            Creole culture is visible in local food, music, language, architecture, and festivals.
+                            Visitors are encouraged to experience local culture respectfully.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="culture-item">
+                        <h3>Food and Markets</h3>
+                        <p>
+                            Local cuisine often features fish, coconut, spices, tropical fruits, and island-style cooking.
+                            Markets and small restaurants can offer a direct view of everyday island life.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="culture-item">
+                        <h3>Nature and Conservation</h3>
+                        <p>
+                            Seychelles is known for conservation-oriented tourism. Participants should follow local rules,
+                            avoid disturbing wildlife, reduce waste, and respect marine and nature reserves.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container site-section">
+        <div class="text-center">
+            <p class="section-title">Planning Notes for Participants</p>
+        </div>
+
+        <div class="planning-panel">
+            <ul class="planning-list">
+                <li>Participants are advised to book flights and accommodation early, as Seychelles is a popular travel destination.</li>
+                <li>Most international participants should plan to arrive at Seychelles International Airport (SEZ) on Mahé Island.</li>
+                <li>Travel authorization, entry requirements, airline schedules, and transit rules should be checked before departure.</li>
+                <li>Local transportation, airport transfer, hotel transfer, and optional tours are not included in the registration fee unless otherwise specified.</li>
+                <li>Conference-specific shuttle or local transportation arrangements will be updated after confirmation by the organizing committee.</li>
+                <li>Please visit the <a href="transportation.html">Transportation</a> and <a href="accommodation.html">Accommodation</a> pages for updated practical information.</li>
+            </ul>
         </div>
     </div>
 
     <div class="container" style="margin-top: 100px;text-align:center">
         <table>
             <tr>
-                <td style="width: 70%;"><img src="./Images/bottom6.png" class="img-responsive center-block" style="width: 100%;" /></td>
-                <td style="width: 40%;margin-left: 5px;display:inline-block"><img class="img-responsive" src="./Images/rcar2026_logo.jpg" /></td>
+                <td style="width: 70%;">
+                    <img src="./Images/bottom6.png" class="img-responsive center-block" style="width: 100%;" />
+                </td>
+                <td style="width: 40%;margin-left: 5px;display:inline-block">
+                    <img class="img-responsive" src="./Images/rcar2026_logo.jpg" />
+                </td>
             </tr>
         </table>
     </div>
