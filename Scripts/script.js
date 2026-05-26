@@ -6,14 +6,15 @@ $(document).ready(function () {
     });
 
     // map setup
-    var latlng = new google.maps.LatLng(54.445340, 18.553448);
-    function initialize() {
-        var mapProp = {
-            center: latlng,
-            zoom: 16,
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
-            scrollwheel: false,
-            styles: [
+    if (window.google && google.maps && document.getElementById("mapa")) {
+        var latlng = new google.maps.LatLng(54.445340, 18.553448);
+        function initialize() {
+            var mapProp = {
+                center: latlng,
+                zoom: 16,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                scrollwheel: false,
+                styles: [
                       {
                           "elementType": "geometry",
                           "stylers": [{"color": "#f5f5f5"}]
@@ -100,18 +101,19 @@ $(document).ready(function () {
                           "elementType": "labels.text.fill",
                           "stylers": [{"color": "#9e9e9e"}]
                       }
-            ]
-        };
+                ]
+            };
 
-        var marker = new google.maps.Marker({
-            position: latlng,
-            icon: 'Images/marker.png'
-        });
+            var marker = new google.maps.Marker({
+                position: latlng,
+                icon: 'Images/marker.png'
+            });
 
-        var map = new google.maps.Map(document.getElementById("mapa"), mapProp);
-        marker.setMap(map);
+            var map = new google.maps.Map(document.getElementById("mapa"), mapProp);
+            marker.setMap(map);
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
     }
-    google.maps.event.addDomListener(window, 'load', initialize);
 
     toggleTimerVisibility();
     toggleWorkshopsLayout();
