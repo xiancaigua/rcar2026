@@ -290,6 +290,38 @@
                 font-size: 13.2pt;
             }
         }
+        .hero-panel {
+            max-width: 1060px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero-panel .travel-subtitle {
+            max-width: 820px;
+            text-align: left;
+        }
+        .quick-cards-row {
+            margin-top: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            flex-wrap: wrap;
+        }
+        .quick-cards-row > [class*="col-"] {
+            float: none;
+            display: flex;
+        }
+        .quick-cards-row .quick-card {
+            width: 100%;
+            min-height: 138px;
+        }
+        @media (max-width: 991px) {
+            .quick-cards-row {
+                display: block;
+            }
+            .quick-cards-row > [class*="col-"] {
+                display: block;
+            }
+        }
     </style>
 
     <script src="./Scripts/jquery-1.11.3.js?v=20220702"></script>
@@ -352,320 +384,6 @@
     </div>
 </nav>
 
-    <div class="container travel-page" style="margin-top: 20px;">
-        <div class="hero-panel">
-            <p class="travel-title">Travel Information</p>
-            <p class="travel-subtitle">
-                Participants are encouraged to arrange international flights, accommodation, entry procedures, and local transportation early.
-                Seychelles is a popular travel destination, and flight and hotel availability may be limited during the conference period.
-                Conference-specific transportation arrangements will be updated after confirmation by the organizing committee.
-            </p>
-
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <div class="quick-card">
-                        <span class="quick-label">International Gateway</span>
-                        <span class="quick-value">Seychelles International Airport (SEZ), Mahé Island</span>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="quick-card">
-                        <span class="quick-label">Entry Procedure</span>
-                        <span class="quick-value">Travel Authorisation is required before departure</span>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="quick-card">
-                        <span class="quick-label">Airport Transfer</span>
-                        <span class="quick-value">Taxi, public bus, car rental, hotel transfer, or private transfer</span>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="quick-card">
-                        <span class="quick-label">Conference Shuttle</span>
-                        <span class="quick-value">To be confirmed by the organizing committee</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section-block">
-            <div class="section-card sky">
-                <p class="section-heading">Arrival by Air</p>
-                <p class="body-text">
-                    Most international participants should plan to arrive through <strong>Seychelles International Airport (SEZ)</strong>,
-                    located on Mahé Island. Participants should check airline schedules, transit rules, baggage policies, and minimum connection
-                    times before booking flights.
-                </p>
-                <ul class="clean-list">
-                    <li>Recommended arrival airport: Seychelles International Airport (SEZ), Mahé Island.</li>
-                    <li>Participants are advised to arrive at least one day before their scheduled presentation or registration activity.</li>
-                    <li>Recommended routes and airlines will not be listed as official conference recommendations unless confirmed by the organizing committee.</li>
-                    <li>Transit visa requirements may depend on the participant's nationality, airline, and transit country.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="section-block">
-            <div class="section-card mint">
-                <p class="section-heading">Entry Requirements</p>
-                <p class="body-text">
-                    Seychelles is generally a visa-free destination for visitors, but travelers must still complete the required immigration
-                    procedures before traveling. Participants should check the latest official entry requirements before departure.
-                </p>
-
-                <div class="table-responsive">
-                    <table class="travel-table">
-                        <tr>
-                            <th>Item</th>
-                            <th>Current Guidance</th>
-                        </tr>
-                        <tr>
-                            <td>Visa</td>
-                            <td>No visa is generally required for visitors to Seychelles, but a visitor's permit is issued on arrival to eligible travelers.</td>
-                        </tr>
-                        <tr>
-                            <td>Travel Authorisation</td>
-                            <td>All travelers are required to apply for Travel Authorisation before traveling to Seychelles.</td>
-                        </tr>
-                        <tr>
-                            <td>Documents</td>
-                            <td>Prepare a valid passport, flight booking confirmation, accommodation confirmation, contact information, trip information, and payment card for the online procedure.</td>
-                        </tr>
-                        <tr>
-                            <td>Health-related document</td>
-                            <td>A Yellow Fever vaccination certificate may be required only under specific travel or transit conditions involving Yellow Fever endemic countries.</td>
-                        </tr>
-                    </table>
-                </div>
-
-                <div class="warning-box">
-                    Entry and transit requirements may change. Participants are responsible for checking official sources before departure.
-                    The conference website provides travel guidance only and does not replace official immigration advice.
-                </div>
-
-                <p class="body-text" style="margin-top: 15px;">
-                    Registered participants who require an invitation letter may contact the conference secretariat at
-                    <a href="mailto:ieeercar@163.com">ieeercar@163.com</a>. Please include your paper ID, paper title,
-                    full name, affiliation, passport name if needed, and registration confirmation.
-                </p>
-            </div>
-        </div>
-
-        <div class="section-block">
-            <div class="section-card sand">
-                <p class="section-heading">Airport Transfer</p>
-                <p class="body-text">
-                    After arriving at Seychelles International Airport, participants may use taxi services, public buses, car rental,
-                    hotel-arranged transfers, or pre-booked private transfers to reach their accommodation or the conference venue.
-                </p>
-
-                <div class="table-responsive">
-                    <table class="travel-table">
-                        <tr>
-                            <th>Option</th>
-                            <th>Description</th>
-                            <th>Notes</th>
-                        </tr>
-                        <tr>
-                            <td>Taxi</td>
-                            <td>Taxi services are available at the international airport.</td>
-                            <td>Taxi stands are located outside the arrivals terminal. Suitable for late arrivals or participants with luggage.</td>
-                        </tr>
-                        <tr>
-                            <td>Public Bus</td>
-                            <td>Public buses are accessible outside the airport and connect to different destinations on Mahé.</td>
-                            <td>Participants should check bus card and luggage rules before using public buses.</td>
-                        </tr>
-                        <tr>
-                            <td>Car Rental</td>
-                            <td>Car rental services are available at the airport.</td>
-                            <td>Prior booking is recommended. Participants should check local driving rules and parking availability.</td>
-                        </tr>
-                        <tr>
-                            <td>Hotel Transfer</td>
-                            <td>Some hotels may provide airport transfer services.</td>
-                            <td>Availability, price, and booking method depend on the hotel.</td>
-                        </tr>
-                        <tr>
-                            <td>Private Transfer</td>
-                            <td>Participants may arrange private transfers in advance.</td>
-                            <td>Recommended for groups, late arrivals, or participants carrying large luggage.</td>
-                        </tr>
-                        <tr>
-                            <td>Conference Shuttle</td>
-                            <td>To be confirmed.</td>
-                            <td>The organizing committee will update this information if shuttle service is arranged.</td>
-                        </tr>
-                    </table>
-                </div>
-
-                <div class="note-box">
-                    Public buses may not be convenient for participants with large luggage or late-night arrivals. Participants are encouraged
-                    to confirm transportation arrangements before departure.
-                </div>
-            </div>
-        </div>
-
-        <div class="section-block">
-            <div class="section-card">
-                <p class="section-heading">Local Transportation in Seychelles</p>
-                <p class="body-text">
-                    Local transportation options in Seychelles include taxis, public buses, rental cars, hotel transfers, and private transfers.
-                    The most suitable option depends on the participant's hotel location, luggage, arrival time, and conference schedule.
-                </p>
-
-                <div class="table-responsive">
-                    <table class="travel-table">
-                        <tr>
-                            <th>Option</th>
-                            <th>Suitable For</th>
-                            <th>Notes</th>
-                        </tr>
-                        <tr>
-                            <td>Taxi</td>
-                            <td>Short local trips, airport transfer, evening travel</td>
-                            <td>Confirm destination and fare arrangement before departure.</td>
-                        </tr>
-                        <tr>
-                            <td>Public Bus</td>
-                            <td>Budget local travel on Mahé</td>
-                            <td>Check routes, operating hours, bus card requirements, and luggage policy.</td>
-                        </tr>
-                        <tr>
-                            <td>Rental Car</td>
-                            <td>Flexible travel on Mahé or Praslin</td>
-                            <td>Useful for independent travel; check driving rules and hotel parking before booking.</td>
-                        </tr>
-                        <tr>
-                            <td>Hotel Transfer</td>
-                            <td>Airport-hotel or hotel-venue transfer</td>
-                            <td>Confirm directly with the hotel in advance.</td>
-                        </tr>
-                        <tr>
-                            <td>Private Transfer</td>
-                            <td>Groups or participants with large luggage</td>
-                            <td>Pre-booking is recommended.</td>
-                        </tr>
-                    </table>
-                </div>
-
-                <p class="body-text" style="margin-top: 15px;">
-                    Detailed hotel-to-venue transportation guidance will be updated after the conference venue and recommended accommodation
-                    arrangements are finalized.
-                </p>
-            </div>
-        </div>
-
-        <div class="section-block">
-            <div class="section-card sky">
-                <p class="section-heading">Inter-island Transportation</p>
-                <p class="body-text">
-                    Some participants may plan to visit other islands before or after the conference. Inter-island transportation in Seychelles
-                    may include domestic flights, chartered air services, and ferry services between islands such as Mahé, Praslin, and La Digue.
-                </p>
-                <ul class="clean-list">
-                    <li>Inter-island trips are optional and are not included in the conference registration fee unless otherwise specified.</li>
-                    <li>Domestic flight and charter options should be checked directly with the relevant operators.</li>
-                    <li>Ferry schedules and availability should be checked before planning island visits.</li>
-                    <li>Weather and sea conditions may affect ferry schedules.</li>
-                    <li>Participants should allow enough time when connecting between ferries, domestic flights, and international flights.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="section-block">
-            <div class="section-card mint">
-                <p class="section-heading">Conference Local Transportation</p>
-                <p class="body-text">
-                    Conference-specific transportation arrangements are under discussion and will be updated later.
-                </p>
-
-                <div class="row tbc-grid">
-                    <div class="col-md-4 col-sm-6">
-                        <div class="tbc-item">
-                            <strong>Conference shuttle</strong>
-                            <span>To be confirmed</span>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="tbc-item">
-                            <strong>Airport pickup service</strong>
-                            <span>To be confirmed</span>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="tbc-item">
-                            <strong>Hotel-to-venue transfer</strong>
-                            <span>To be confirmed</span>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="tbc-item">
-                            <strong>Recommended taxi / transfer contacts</strong>
-                            <span>To be confirmed</span>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="tbc-item">
-                            <strong>Local tour transportation</strong>
-                            <span>To be confirmed</span>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="tbc-item">
-                            <strong>Venue transportation notice</strong>
-                            <span>To be updated after venue confirmation</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="warning-box">
-                    Participants should not assume that airport transfer, hotel-to-venue transportation, or local tour transportation is included
-                    in the registration fee unless explicitly announced by the organizing committee.
-                </div>
-            </div>
-        </div>
-
-        <div class="section-block">
-            <div class="section-card sand">
-                <p class="section-heading">Useful Travel Tips</p>
-                <ul class="clean-list">
-                    <li>Book flights and hotels early.</li>
-                    <li>Check passport validity and entry requirements before departure.</li>
-                    <li>Complete the required Travel Authorisation before departure.</li>
-                    <li>Keep accommodation confirmation and return/onward flight information available for entry procedures.</li>
-                    <li>Confirm airport transfer before arrival, especially for late-night flights.</li>
-                    <li>Check local transportation options before planning independent travel.</li>
-                    <li>Allow extra time for airport transfers, ferry connections, and inter-island travel.</li>
-                    <li>Keep the conference contact email available: <a href="mailto:ieeercar@163.com">ieeercar@163.com</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="section-block">
-            <div class="section-card">
-                <p class="section-heading">Useful Links</p>
-                <ul class="link-list">
-                    <li>Seychelles Electronic Border System:
-                        <a href="https://seychelles.govtas.com/en" target="_blank" rel="noopener noreferrer">https://seychelles.govtas.com/en</a>
-                    </li>
-                    <li>Seychelles International Airport Transportation:
-                        <a href="https://seychellesairports.sc/travel-connections/transportation" target="_blank" rel="noopener noreferrer">https://seychellesairports.sc/travel-connections/transportation</a>
-                    </li>
-                    <li>Seychelles International Airport - Connection to Other Islands:
-                        <a href="https://seychellesairports.sc/travel-connections/connection-to-other-islands" target="_blank" rel="noopener noreferrer">https://seychellesairports.sc/travel-connections/connection-to-other-islands</a>
-                    </li>
-                    <li>Seychelles Immigration / Visiting Seychelles:
-                        <a href="https://www.ics.gov.sc/visa-and-travel/visiting-seychelles" target="_blank" rel="noopener noreferrer">https://www.ics.gov.sc/visa-and-travel/visiting-seychelles</a>
-                    </li>
-                    <li>Seychelles Ministry of Foreign Affairs / Travelling to Seychelles:
-                        <a href="https://mfa.gov.sc/travelling-to-seychelles/" target="_blank" rel="noopener noreferrer">https://mfa.gov.sc/travelling-to-seychelles/</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
 
     <div class="container bottom-spacer">
         <table>

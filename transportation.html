@@ -356,6 +356,38 @@
             .airport-transfer-text { font-size: 14pt; }
             .airport-transfer-card { min-height: 0; }
         }
+        .hero-panel {
+            max-width: 1060px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero-panel .travel-subtitle {
+            max-width: 820px;
+            text-align: left;
+        }
+        .quick-cards-row {
+            margin-top: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            flex-wrap: wrap;
+        }
+        .quick-cards-row > [class*="col-"] {
+            float: none;
+            display: flex;
+        }
+        .quick-cards-row .quick-card {
+            width: 100%;
+            min-height: 138px;
+        }
+        @media (max-width: 991px) {
+            .quick-cards-row {
+                display: block;
+            }
+            .quick-cards-row > [class*="col-"] {
+                display: block;
+            }
+        }
     </style>
 
     <script src="./Scripts/jquery-1.11.3.js?v=20220702"></script>
@@ -427,20 +459,20 @@
                 Conference-specific transportation arrangements will be updated after confirmation by the organizing committee.
             </p>
 
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
+            <div class="row quick-cards-row">
+                <div class="col-md-4 col-sm-6">
                     <div class="quick-card">
                         <span class="quick-label">International Gateway</span>
                         <span class="quick-value">Seychelles International Airport (SEZ), Mahé Island</span>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-4 col-sm-6">
                     <div class="quick-card">
                         <span class="quick-label">Entry Procedure</span>
                         <span class="quick-value">Travel Authorisation is required before departure</span>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-4 col-sm-6">
                     <div class="quick-card">
                         <span class="quick-label">Airport Transfer</span>
                         <span class="quick-value">Taxi, public bus, car rental, hotel transfer, or private transfer</span>
