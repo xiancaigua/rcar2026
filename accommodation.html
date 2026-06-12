@@ -4,11 +4,9 @@
     <meta charset="utf-8" />
     <title>Accommodation - IEEE RCAR 2026</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:image" content="" />
     <meta property="og:title" content="IEEE RCAR 2026">
     <meta property="og:description" content="Accommodation information for IEEE RCAR 2026">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache">
@@ -18,216 +16,40 @@
     <link rel="stylesheet" href="./CSS/style.css" />
     <link rel="stylesheet" href="./CSS/animate.css" />
     <link rel="stylesheet" href="./CSS/hover.css"/>
-    <link rel="icon" href="" />
-    <link rel="shortcut icon" href="" />
     <link href="./CSS/bootstrap-theme.min.css" rel="stylesheet" />
     <link href='https://fonts.googleapis.com/css?family=Armata&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="./CSS/swiper.min.css"/>
 
     <style>
-        body {
-            background: linear-gradient(180deg, #ffffff 0%, #f7fbfc 45%, #ffffff 100%);
-        }
-
-        .accom-page {
-            font-family: "Helvetica Neue", Arial, sans-serif;
-            color: #2f3e46;
-        }
-
-        .accom-hero {
-            margin-top: 24px;
-            border: 1px solid #d9e5e8;
-            border-radius: 16px;
-            padding: 28px 32px;
-            background: linear-gradient(135deg, #edf8ff 0%, #edf9f6 55%, #fff7e8 100%);
-            box-shadow: 0 12px 28px rgba(30, 80, 100, 0.08);
-            text-align: left;
-        }
-
-        .accom-title {
-            color: #27445c;
-            margin-top: 0;
-            font-size: 32pt;
-            text-align: center;
-            letter-spacing: 0.5px;
-        }
-
-        .accom-title:after {
-            content: "";
-            display: block;
-            width: 76px;
-            height: 3px;
-            margin: 12px auto 0 auto;
-            border-radius: 3px;
-            background: linear-gradient(90deg, #1677b3, #1aa39a);
-        }
-
-        .accom-lead {
-            max-width: 920px;
-            margin: 18px auto 0 auto;
-            font-size: 15.2pt;
-            line-height: 1.75;
-            text-align: left;
-            color: #31444f;
-        }
-
-        .notice-box {
-            border-left: 5px solid #1aa39a;
-            background: #f5fbfa;
-            padding: 14px 18px;
-            margin-top: 18px;
-            font-size: 14.5pt;
-            line-height: 1.7;
-            text-align: left;
-        }
-
-        .section-title {
-            color: #27445c;
-            font-size: 22pt;
-            font-weight: bold;
-            margin-top: 32px;
-            margin-bottom: 16px;
-            padding-left: 12px;
-            border-left: 5px solid #1aa39a;
-            text-align: left;
-        }
-
-        .hotel-card {
-            border: 1px solid #d9e5e8;
-            border-radius: 16px;
-            background: #ffffff;
-            margin-bottom: 24px;
-            overflow: hidden;
-            box-shadow: 0 10px 24px rgba(30, 70, 90, 0.08);
-        }
-
-        .hotel-card-header {
-            padding: 18px 22px;
-            color: #ffffff;
-            background: linear-gradient(90deg, #1677b3, #1aa39a);
-            text-align: left;
-        }
-
-        .hotel-card-header h3 {
-            margin: 0 0 6px 0;
-            font-size: 20pt;
-            font-weight: bold;
-        }
-
-        .hotel-card-header p {
-            margin: 0;
-            font-size: 13.5pt;
-            line-height: 1.45;
-        }
-
-        .hotel-card-body {
-            padding: 20px 22px;
-        }
-
-        .room-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 13.8pt;
-            color: #2f3e46;
-            background: #ffffff;
-        }
-
-        .room-table th {
-            background: #e7f3f6;
-            color: #27445c;
-            font-weight: bold;
-            border: 1px solid #bfd4dc;
-            padding: 10px;
-            text-align: left;
-        }
-
-        .room-table td {
-            border: 1px solid #d5e3e8;
-            padding: 10px;
-            vertical-align: top;
-            line-height: 1.55;
-            text-align: left;
-        }
-
-        .room-table tr:nth-child(even) td {
-            background: #fbfdfe;
-        }
-
-        .info-grid {
-            margin-top: 8px;
-        }
-
-        .info-item {
-            background: #ffffff;
-            border: 1px solid #d9e5e8;
-            border-radius: 12px;
-            padding: 14px 16px;
-            margin-top: 12px;
-            min-height: 95px;
-            box-shadow: 0 6px 16px rgba(30, 80, 100, 0.06);
-            text-align: left;
-        }
-
-        .info-item strong {
-            display: block;
-            color: #27445c;
-            font-size: 14.8pt;
-            margin-bottom: 5px;
-        }
-
-        .info-item span {
-            color: #5d6d75;
-            font-size: 13.8pt;
-            line-height: 1.5;
-        }
-
-        .clean-list {
-            font-size: 14.5pt;
-            line-height: 1.65;
-            text-align: left;
-            padding-left: 22px;
-            margin-bottom: 0;
-        }
-
-        .clean-list li {
-            margin-top: 8px;
-        }
-
-        .transport-card {
-            margin-top: 18px;
-            border: 1px solid #d9e5e8;
-            border-radius: 14px;
-            padding: 18px 20px;
-            background: linear-gradient(135deg, #ffffff 0%, #edf8ff 100%);
-            box-shadow: 0 8px 20px rgba(30, 70, 90, 0.07);
-            text-align: left;
-        }
-
-        .transport-card a {
-            font-weight: bold;
-        }
-
-        @media (max-width: 768px) {
-            .accom-title {
-                font-size: 26pt;
-            }
-
-            .accom-lead {
-                font-size: 14pt;
-            }
-
-            .section-title {
-                font-size: 19pt;
-            }
-
-            .room-table {
-                font-size: 12.8pt;
-            }
-
-            .hotel-card-header h3 {
-                font-size: 18pt;
-            }
-        }
+        body { background: linear-gradient(180deg, #ffffff 0%, #f7fbfc 45%, #ffffff 100%); }
+        .page { font-family: "Helvetica Neue", Arial, sans-serif; color:#2f3e46; }
+        .hero { margin-top:24px; border:1px solid #d9e5e8; border-radius:18px; overflow:hidden; background:#fff; box-shadow:0 14px 32px rgba(30,80,100,0.10); }
+        .hero-img { width:100%; height:360px; object-fit:cover; display:block; }
+        .hero-body { padding:28px 32px; background:linear-gradient(135deg,#edf8ff 0%,#edf9f6 55%,#fff7e8 100%); text-align:left; }
+        .title { color:#27445c; margin-top:0; font-size:32pt; text-align:center; letter-spacing:.5px; }
+        .title:after { content:""; display:block; width:76px; height:3px; margin:12px auto 0; border-radius:3px; background:linear-gradient(90deg,#1677b3,#1aa39a); }
+        .lead { max-width:980px; margin:18px auto 0; font-size:15.2pt; line-height:1.75; text-align:left; color:#31444f; }
+        .notice { border-left:5px solid #1aa39a; background:#f5fbfa; padding:14px 18px; margin-top:18px; font-size:14.5pt; line-height:1.7; text-align:left; }
+        .section-title { color:#27445c; font-size:22pt; font-weight:bold; margin-top:32px; margin-bottom:16px; padding-left:12px; border-left:5px solid #1aa39a; text-align:left; }
+        .fact-card { background:#fff; border:1px solid #d9e5e8; border-radius:14px; padding:16px 18px; margin-bottom:16px; min-height:130px; box-shadow:0 8px 20px rgba(30,80,100,.07); text-align:left; }
+        .fact-card strong { display:block; color:#27445c; font-size:15.5pt; margin-bottom:7px; }
+        .fact-card span { display:block; font-size:13.8pt; line-height:1.55; color:#4a5960; }
+        .hotel-card { border:1px solid #d9e5e8; border-radius:16px; background:#fff; margin-bottom:24px; overflow:hidden; box-shadow:0 10px 24px rgba(30,70,90,.08); }
+        .hotel-card-header { padding:18px 22px; color:#fff; background:linear-gradient(90deg,#1677b3,#1aa39a); text-align:left; }
+        .hotel-card-header h3 { margin:0 0 6px; font-size:20pt; font-weight:bold; }
+        .hotel-card-header p { margin:0; font-size:13.5pt; line-height:1.45; }
+        .hotel-card-body { padding:20px 22px; }
+        .table-clean { width:100%; border-collapse:collapse; font-size:13.6pt; color:#2f3e46; background:#fff; }
+        .table-clean th { background:#e7f3f6; color:#27445c; font-weight:bold; border:1px solid #bfd4dc; padding:10px; text-align:left; }
+        .table-clean td { border:1px solid #d5e3e8; padding:10px; vertical-align:top; line-height:1.55; text-align:left; }
+        .table-clean tr:nth-child(even) td { background:#fbfdfe; }
+        .clean-list { font-size:14.5pt; line-height:1.65; text-align:left; padding-left:22px; margin-bottom:0; }
+        .clean-list li { margin-top:8px; }
+        .image-card { border-radius:16px; overflow:hidden; box-shadow:0 10px 24px rgba(30,70,90,.12); background:#fff; margin-top:10px; }
+        .image-card img { width:100%; display:block; }
+        .image-caption { padding:12px 16px; font-size:13.5pt; color:#4a5960; text-align:left; background:#fff; }
+        .transport-card { margin-top:18px; border:1px solid #d9e5e8; border-radius:14px; padding:18px 20px; background:linear-gradient(135deg,#ffffff 0%,#edf8ff 100%); box-shadow:0 8px 20px rgba(30,70,90,.07); text-align:left; }
+        @media (max-width:768px){ .title{font-size:26pt;} .lead{font-size:14pt;} .section-title{font-size:19pt;} .hero-img{height:240px;} .table-clean{font-size:12.5pt;} }
     </style>
 
     <script src="./Scripts/jquery-1.11.3.js?v=20220702"></script>
@@ -290,120 +112,88 @@
     </div>
 </nav>
 
-    <div class="container accom-page">
-        <div class="accom-hero">
-            <p class="accom-title">Accommodation</p>
-            <p class="accom-lead">
-                Recommended accommodation options and group booking information for IEEE RCAR 2026 will be announced after the
-                conference hotel agreement is finalized. The following hotel information is provided as preliminary planning
-                reference and may be subject to change.
-            </p>
-            <div class="notice-box">
-                <strong>Preliminary reference only.</strong> Final group rates, booking instructions, room availability,
-                payment method, and cancellation policy will be announced later by the organizing committee.
+    <div class="container page">
+        <div class="hero">
+            <img class="hero-img" src="./Images/savoy_pool_resort.png" alt="Savoy Seychelles Resort and Spa">
+            <div class="hero-body">
+                <p class="title">Accommodation</p>
+                <p class="lead">
+                    IEEE RCAR 2026 will use Savoy Seychelles Resort &amp; Spa as the main conference hotel and venue reference.
+                    The resort is a 5-star beachfront property located in Beau Vallon, Mahé, with 163 rooms and suites.
+                </p>
+                <div class="notice">
+                    <strong>Booking information is being finalized.</strong>
+                    Group booking instructions, final conference rates, booking deadline, payment method, and cancellation policy
+                    will be announced after confirmation by the organizing committee. Please do not treat any previously circulated
+                    estimated room prices as final public rates.
+                </div>
             </div>
         </div>
 
-        <p class="section-title">Recommended / Candidate Hotels</p>
+        <p class="section-title">Hotel Overview</p>
+        <div class="row">
+            <div class="col-md-3 col-sm-6"><div class="fact-card"><strong>Hotel</strong><span>Savoy Seychelles Resort &amp; Spa</span></div></div>
+            <div class="col-md-3 col-sm-6"><div class="fact-card"><strong>Location</strong><span>Beau Vallon, Mahé, Seychelles</span></div></div>
+            <div class="col-md-3 col-sm-6"><div class="fact-card"><strong>Property Type</strong><span>5-star beachfront resort</span></div></div>
+            <div class="col-md-3 col-sm-6"><div class="fact-card"><strong>Rooms &amp; Suites</strong><span>163 rooms and suites, ranging from 51 to 270 sq.m</span></div></div>
+        </div>
 
         <div class="hotel-card">
             <div class="hotel-card-header">
-                <h3>Coral Strand Smart Choice Hotel</h3>
-                <p>Stay period under discussion: August 16-22, 2026 (6 nights)</p>
+                <h3>Savoy Seychelles Resort &amp; Spa</h3>
+                <p>Official accommodation reference for IEEE RCAR 2026</p>
             </div>
             <div class="hotel-card-body">
+                <p style="font-size:15pt; line-height:1.75; text-align:left;">
+                    The resort offers spacious rooms and suites with views of Morne Seychellois National Park, tropical gardens,
+                    the pool area, or the Indian Ocean. Room allocation and conference booking procedures will be announced later.
+                </p>
                 <div class="table-responsive">
-                    <table class="room-table">
-                        <tr>
-                            <th>Room Type</th>
-                            <th>Double Occupancy</th>
-                            <th>Single Occupancy</th>
-                            <th>Reference Notes</th>
-                        </tr>
-                        <tr>
-                            <td>Standard Signature Garden &amp; Mountains View Room</td>
-                            <td>Approximately USD 805 per person / 6 nights</td>
-                            <td>Approximately USD 1490 per person / 6 nights</td>
-                            <td>Dinner reference: approximately USD 50 per person per night</td>
-                        </tr>
-                        <tr>
-                            <td>Classic Signature Ocean View Room</td>
-                            <td>Approximately USD 860 per person / 6 nights</td>
-                            <td>Approximately USD 1600 per person / 6 nights</td>
-                            <td>Entry application fee and hotel environmental tax may apply</td>
-                        </tr>
+                    <table class="table-clean">
+                        <tr><th>Room / Suite Type</th><th>Number of Rooms</th><th>Approx. Size</th></tr>
+                        <tr><td>Savoy Standard Garden or Mountains View Room</td><td>53</td><td>51 sq.m</td></tr>
+                        <tr><td>Savoy Deluxe Grand Pool View Room</td><td>61</td><td>51 sq.m</td></tr>
+                        <tr><td>Savoy Ocean Side View Room</td><td>21</td><td>51 sq.m</td></tr>
+                        <tr><td>Savoy Junior Suite with Balcony</td><td>18</td><td>76 sq.m</td></tr>
+                        <tr><td>Savoy Suite with Kitchenette</td><td>9</td><td>102 sq.m</td></tr>
+                        <tr><td>Savoy Penthouse with Panoramic View and Outdoor Jacuzzi</td><td>1</td><td>270 sq.m</td></tr>
                     </table>
                 </div>
             </div>
         </div>
 
-        <div class="hotel-card">
-            <div class="hotel-card-header">
-                <h3>Savoy Resort &amp; Spa Seychelles</h3>
-                <p>Stay period under discussion: August 16-22, 2026 (6 nights)</p>
+        <p class="section-title">Resort Facilities</p>
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="clean-list">
+                    <li>Grand Savoy: breakfast, lunch, and themed buffet dinners.</li>
+                    <li>Pescado Restaurant: ocean-to-table seafood and poolside terrace.</li>
+                    <li>Gecko Bar: beachfront cocktails, live music, and themed nights.</li>
+                    <li>Lobby Lounge: coffee, tea, and light snacks; suitable for arrivals and departures.</li>
+                </ul>
             </div>
-            <div class="hotel-card-body">
-                <div class="table-responsive">
-                    <table class="room-table">
-                        <tr>
-                            <th>Room Type</th>
-                            <th>Double Occupancy</th>
-                            <th>Single Occupancy</th>
-                            <th>Reference Notes</th>
-                        </tr>
-                        <tr>
-                            <td>Standard Garden or Mountains View Room</td>
-                            <td>Approximately USD 1070 per person / 6 nights</td>
-                            <td>Approximately USD 1955 per person / 6 nights</td>
-                            <td>Dinner reference: approximately USD 70 per person per night</td>
-                        </tr>
-                        <tr>
-                            <td>Savoy Deluxe Grand Pool View Room</td>
-                            <td>Approximately USD 1165 per person / 6 nights</td>
-                            <td>Approximately USD 2140 per person / 6 nights</td>
-                            <td>Conference room reference: approximately USD 90 per person (full day), USD 65 per person (half day). Entry application fee and hotel environmental tax may apply.</td>
-                        </tr>
-                    </table>
-                </div>
+            <div class="col-md-6">
+                <ul class="clean-list">
+                    <li>Savoy Spa with treatment rooms, hydrothermal area, hammam, sauna, and Jacuzzi pool.</li>
+                    <li>Fitness centre, yoga sessions, beauty salon, and wellness facilities.</li>
+                    <li>Outdoor spaces suitable for receptions, informal gatherings, and local activities.</li>
+                </ul>
             </div>
         </div>
 
         <p class="section-title">Booking Instructions</p>
-
-        <div class="row info-grid">
-            <div class="col-md-3 col-sm-6">
-                <div class="info-item">
-                    <strong>Group booking code</strong>
-                    <span>To be confirmed</span>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="info-item">
-                    <strong>Booking deadline</strong>
-                    <span>To be confirmed</span>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="info-item">
-                    <strong>Reservation contact</strong>
-                    <span>To be confirmed</span>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="info-item">
-                    <strong>Cancellation policy</strong>
-                    <span>To be confirmed</span>
-                </div>
-            </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-6"><div class="fact-card"><strong>Group booking code</strong><span>To be confirmed</span></div></div>
+            <div class="col-md-3 col-sm-6"><div class="fact-card"><strong>Booking deadline</strong><span>To be confirmed</span></div></div>
+            <div class="col-md-3 col-sm-6"><div class="fact-card"><strong>Reservation contact</strong><span>To be confirmed by the organizing committee</span></div></div>
+            <div class="col-md-3 col-sm-6"><div class="fact-card"><strong>Cancellation policy</strong><span>To be confirmed</span></div></div>
         </div>
 
-        <p class="section-title">Accommodation Notes</p>
-        <ul class="clean-list">
-            <li>Participants are encouraged to book early after official instructions are released.</li>
-            <li>Hotel availability in Seychelles may be limited during the conference period.</li>
-            <li>Final rates may vary depending on room type, occupancy, tax, and booking policy.</li>
-            <li>Accommodation, airport transfer, visa or entry authorization fees, and optional local tours are not included in the registration fee unless otherwise specified.</li>
-        </ul>
+        <div class="notice">
+            Accommodation, airport transfer, entry authorization fees, and optional local tours are not included in the conference
+            registration fee unless explicitly announced by the organizing committee. For official updates, please contact
+            <a href="mailto:ieeercar@163.com">ieeercar@163.com</a>.
+        </div>
 
         <div class="transport-card">
             <p style="font-size:15pt; line-height:1.65; margin-bottom:0;">
@@ -413,11 +203,11 @@
         </div>
     </div>
 
-    <div class="container" style="margin-top: 100px;text-align:center">
+    <div class="container" style="margin-top:100px;text-align:center">
         <table>
             <tr>
-                <td style="width: 70%;"><img src="./Images/bottom6.png" class="img-responsive center-block" style="width: 100%;" /></td>
-                <td style="width: 40%;margin-left: 5px;display:inline-block"><img class="img-responsive" src="./Images/rcar2026_logo.jpg" /></td>
+                <td style="width:70%;"><img src="./Images/bottom6.png" class="img-responsive center-block" style="width:100%;" /></td>
+                <td style="width:40%;margin-left:5px;display:inline-block"><img class="img-responsive" src="./Images/rcar2026_logo.jpg" /></td>
             </tr>
         </table>
     </div>

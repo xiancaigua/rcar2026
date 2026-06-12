@@ -30,6 +30,76 @@
             border-radius: 4px;
             margin-top: 10px;
         }
+        .abstract-call-section { margin-top: 28px; margin-bottom: 28px; }
+        .abstract-call-card {
+            border: 1px solid #d9e5e8;
+            border-radius: 16px;
+            padding: 24px 28px;
+            background: linear-gradient(135deg, #edf8ff 0%, #edf9f6 55%, #fff7e8 100%);
+            box-shadow: 0 12px 28px rgba(30, 80, 100, 0.08);
+            text-align: left;
+        }
+        .abstract-call-title {
+            color: #27445c;
+            font-size: 24pt;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+        .abstract-call-title:after {
+            content: "";
+            display: block;
+            width: 76px;
+            height: 3px;
+            margin: 12px auto 0 auto;
+            border-radius: 3px;
+            background: linear-gradient(90deg, #1677b3, #1aa39a);
+        }
+        .abstract-call-text {
+            font-size: 15pt;
+            line-height: 1.75;
+            color: #31444f;
+            text-align: left;
+        }
+        .abstract-call-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14.2pt;
+            color: #2f3e46;
+            background: #ffffff;
+            margin-top: 12px;
+            margin-bottom: 14px;
+        }
+        .abstract-call-table th {
+            background: #e7f3f6;
+            color: #27445c;
+            font-weight: bold;
+            border: 1px solid #bfd4dc;
+            padding: 10px;
+            text-align: left;
+        }
+        .abstract-call-table td {
+            border: 1px solid #d5e3e8;
+            padding: 10px;
+            vertical-align: top;
+            line-height: 1.55;
+            text-align: left;
+        }
+        .abstract-call-list {
+            font-size: 14.5pt;
+            line-height: 1.65;
+            color: #2f3e46;
+            text-align: left;
+            padding-left: 22px;
+            margin-bottom: 0;
+        }
+        .abstract-call-list li { margin-top: 8px; }
+        @media (max-width: 768px) {
+            .abstract-call-title { font-size: 20pt; }
+            .abstract-call-text, .abstract-call-list { font-size: 13.8pt; }
+            .abstract-call-table { font-size: 12.8pt; }
+        }
     </style>
     <script src="./Scripts/jquery-1.11.3.js?v=20220702"></script>
     <script src="./Scripts/jquery.countdown.js?v=20220702"></script>
@@ -37,6 +107,42 @@
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 <nav class="navbar navbar-custom navbar-static-top">
+<!-- RCAR_ABSTRACT_CALL_START -->
+<div class="container abstract-call-section" id="call-for-abstracts">
+    <div class="abstract-call-card">
+        <p class="abstract-call-title">Call for Abstracts / Extended Abstracts</p>
+        <p class="abstract-call-text">
+            IEEE RCAR 2026 is opening an additional call for short paper / extended abstract submissions.
+            This call is intended for participants who would like to present recent work, preliminary results,
+            student projects, or emerging research ideas at the conference.
+        </p>
+
+        <div class="table-responsive">
+            <table class="abstract-call-table">
+                <tr>
+                    <th>Item</th>
+                    <th>Date / Information</th>
+                </tr>
+                <tr>
+                    <td>Abstract Submission Deadline</td>
+                    <td>June 30, 2026</td>
+                </tr>
+                <tr>
+                    <td>Abstract Acceptance Notification</td>
+                    <td>July 10, 2026</td>
+                </tr>
+            </table>
+        </div>
+
+        <ul class="abstract-call-list">
+            <li>Accepted abstracts / extended abstracts are expected to be presented at the conference.</li>
+            <li>Short paper / extended abstract submissions will not be submitted to IEEE Xplore and will not be considered archival IEEE publications, unless otherwise announced by the organizing committee.</li>
+            <li>Registration fee standards are based on participant category, not submission type. There is currently no separate discounted registration category for abstract-only presentations unless otherwise announced.</li>
+            <li>Submission instructions and detailed presentation arrangements will be updated after confirmation by the organizing committee.</li>
+        </ul>
+    </div>
+</div>
+<!-- RCAR_ABSTRACT_CALL_END -->
     <div class="container_fluid">
         <div class="navbar-header">
             <button class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
@@ -150,7 +256,7 @@
         </div>
 
         <p class="text-justify" style="font-size: 15pt; margin-top: 20px;">
-            For further questions, please contact: <a href="mailto:ieee.rcar@gmail.com">ieee.rcar@gmail.com</a>.
+            For further questions, please contact: <a href="mailto:ieeercar@163.com">ieeercar@163.com</a>.
         </p>
     </div>
 

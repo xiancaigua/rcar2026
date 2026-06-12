@@ -389,6 +389,94 @@
         .home-photo-caption strong { display: block; font-size: 16pt; margin-bottom: 3px; }
         .home-photo-caption span { font-size: 12.5pt; line-height: 1.4; }
         @media (max-width: 768px) { .home-photo-card img { height: 190px; } .home-gallery-title { font-size: 22pt; } }
+        .rcar-home-carousel { max-width: 980px; margin: 16px auto 0 auto; border-radius: 14px; overflow: hidden; box-shadow: 0 14px 34px rgba(30, 70, 90, 0.20); background: #ffffff; }
+        .rcar-home-carousel .carousel-inner > .item > img { width: 100%; height: 540px; object-fit: cover; display: block; }
+        .rcar-home-carousel .carousel-indicators { bottom: 14px; }
+        .rcar-home-carousel .carousel-control { background-image: none; opacity: 0.9; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85); }
+        .rcar-home-carousel .carousel-control:hover, .rcar-home-carousel .carousel-control:focus { opacity: 1; }
+        .rcar-home-carousel .carousel-arrow { position: absolute; top: 50%; z-index: 5; display: inline-block; font-size: 58px; font-weight: 300; line-height: 1; color: #ffffff; transform: translateY(-50%); }
+        .rcar-home-carousel .left .carousel-arrow { left: 36px; }
+        .rcar-home-carousel .right .carousel-arrow { right: 36px; }
+        .home-gallery-section { margin-top: 34px; }
+        .home-gallery-title { color: #27445c; font-size: 26pt; text-align: center; margin-bottom: 16px; letter-spacing: 0.5px; }
+        .home-gallery-title:after { content: ""; display: block; width: 70px; height: 3px; margin: 10px auto 0 auto; border-radius: 3px; background: linear-gradient(90deg, #1677b3, #1aa39a); }
+        .home-photo-card { position: relative; overflow: hidden; border-radius: 14px; margin-bottom: 18px; box-shadow: 0 10px 24px rgba(30, 70, 90, 0.16); background: #ffffff; }
+        .home-photo-card img { width: 100%; height: 235px; object-fit: cover; display: block; transition: transform 0.35s ease; }
+        .home-photo-card:hover img { transform: scale(1.045); }
+        .home-photo-caption { position: absolute; left: 0; right: 0; bottom: 0; padding: 16px 18px; color: #ffffff; background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.70)); text-align: left; }
+        .home-photo-caption strong { display: block; font-size: 16pt; margin-bottom: 3px; }
+        .home-photo-caption span { font-size: 12.5pt; line-height: 1.4; }
+        @media (max-width: 768px) { .rcar-home-carousel .carousel-inner > .item > img { height: 300px; } .rcar-home-carousel .carousel-arrow { font-size: 42px; } .rcar-home-carousel .left .carousel-arrow { left: 22px; } .rcar-home-carousel .right .carousel-arrow { right: 22px; } .home-photo-card img { height: 190px; } .home-gallery-title { font-size: 22pt; } }
+        .abstract-call-section { margin-top: 28px; margin-bottom: 28px; }
+        .abstract-call-card {
+            border: 1px solid #d9e5e8;
+            border-radius: 16px;
+            padding: 24px 28px;
+            background: linear-gradient(135deg, #edf8ff 0%, #edf9f6 55%, #fff7e8 100%);
+            box-shadow: 0 12px 28px rgba(30, 80, 100, 0.08);
+            text-align: left;
+        }
+        .abstract-call-title {
+            color: #27445c;
+            font-size: 24pt;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+        .abstract-call-title:after {
+            content: "";
+            display: block;
+            width: 76px;
+            height: 3px;
+            margin: 12px auto 0 auto;
+            border-radius: 3px;
+            background: linear-gradient(90deg, #1677b3, #1aa39a);
+        }
+        .abstract-call-text {
+            font-size: 15pt;
+            line-height: 1.75;
+            color: #31444f;
+            text-align: left;
+        }
+        .abstract-call-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14.2pt;
+            color: #2f3e46;
+            background: #ffffff;
+            margin-top: 12px;
+            margin-bottom: 14px;
+        }
+        .abstract-call-table th {
+            background: #e7f3f6;
+            color: #27445c;
+            font-weight: bold;
+            border: 1px solid #bfd4dc;
+            padding: 10px;
+            text-align: left;
+        }
+        .abstract-call-table td {
+            border: 1px solid #d5e3e8;
+            padding: 10px;
+            vertical-align: top;
+            line-height: 1.55;
+            text-align: left;
+        }
+        .abstract-call-list {
+            font-size: 14.5pt;
+            line-height: 1.65;
+            color: #2f3e46;
+            text-align: left;
+            padding-left: 22px;
+            margin-bottom: 0;
+        }
+        .abstract-call-list li { margin-top: 8px; }
+        @media (max-width: 768px) {
+            .abstract-call-title { font-size: 20pt; }
+            .abstract-call-text, .abstract-call-list { font-size: 13.8pt; }
+            .abstract-call-table { font-size: 12.8pt; }
+        }
     </style>
 
     <script src="./Scripts/jquery-1.11.3.js?v=20220702"></script>
@@ -466,35 +554,67 @@
         </div>
     </div>
 
-    <div class="container" style="margin-top: 15px;">
-        <div id="slideshow" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#slideshow" data-slide-to="0" class="active"></li>
-            <li data-target="#slideshow" data-slide-to="1"></li>
-            <li data-target="#slideshow" data-slide-to="2"></li>
-            <li data-target="#slideshow" data-slide-to="3"></li>
-            <li data-target="#slideshow" data-slide-to="4"></li>
-        </ol>
+<!-- RCAR_ABSTRACT_CALL_START -->
+<div class="container abstract-call-section" id="call-for-abstracts">
+    <div class="abstract-call-card">
+        <p class="abstract-call-title">Call for Abstracts / Extended Abstracts</p>
+        <p class="abstract-call-text">
+            IEEE RCAR 2026 is opening an additional call for short paper / extended abstract submissions.
+            This call is intended for participants who would like to present recent work, preliminary results,
+            student projects, or emerging research ideas at the conference.
+        </p>
 
-        <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <img src="./Images/scenery.png" style="width:100%;" alt="Seychelles scenery 1">
-            </div>
-            <div class="item">
-                <img src="./Images/scenery2.png" style="width:100%;" alt="Seychelles scenery 2">
-            </div>
-            <div class="item">
-                <img src="./Images/scenery3.png" style="width:100%;" alt="Seychelles scenery 3">
-            </div>
-            <div class="item">
-                <img src="./Images/scenery4.png" style="width:100%;" alt="Seychelles scenery 4">
-            </div>
-            <div class="item">
-                <img src="./Images/scenery5.png" style="width:100%;" alt="Seychelles scenery 5">
-            </div>
+        <div class="table-responsive">
+            <table class="abstract-call-table">
+                <tr>
+                    <th>Item</th>
+                    <th>Date / Information</th>
+                </tr>
+                <tr>
+                    <td>Abstract Submission Deadline</td>
+                    <td>June 30, 2026</td>
+                </tr>
+                <tr>
+                    <td>Abstract Acceptance Notification</td>
+                    <td>July 10, 2026</td>
+                </tr>
+            </table>
         </div>
+
+        <ul class="abstract-call-list">
+            <li>Accepted abstracts / extended abstracts are expected to be presented at the conference.</li>
+            <li>Short paper / extended abstract submissions will not be submitted to IEEE Xplore and will not be considered archival IEEE publications, unless otherwise announced by the organizing committee.</li>
+            <li>Registration fee standards are based on participant category, not submission type. There is currently no separate discounted registration category for abstract-only presentations unless otherwise announced.</li>
+            <li>Submission instructions and detailed presentation arrangements will be updated after confirmation by the organizing committee.</li>
+        </ul>
+    </div>
+</div>
+<!-- RCAR_ABSTRACT_CALL_END -->
+    <div class="container" style="margin-top: 15px;">
+        <div id="slideshow" class="carousel slide rcar-home-carousel" data-ride="carousel" data-interval="4500">
+            <ol class="carousel-indicators">
+                <li data-target="#slideshow" data-slide-to="0" class="active"></li>
+                <li data-target="#slideshow" data-slide-to="1"></li>
+                <li data-target="#slideshow" data-slide-to="2"></li>
+                <li data-target="#slideshow" data-slide-to="3"></li>
+                <li data-target="#slideshow" data-slide-to="4"></li>
+            </ol>
+
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="./Images/scenery.png" alt="Seychelles scenery 1">
+                </div>
                 <div class="item">
-                    <img src="./Images/scenery3.png" style="width:100%;" alt="Seychelles scenery 3">
+                    <img src="./Images/scenery2.png" alt="Seychelles scenery 2">
+                </div>
+                <div class="item">
+                    <img src="./Images/scenery3.png" alt="Seychelles scenery 3">
+                </div>
+                <div class="item">
+                    <img src="./Images/scenery4.png" alt="Seychelles scenery 4">
+                </div>
+                <div class="item">
+                    <img src="./Images/scenery5.png" alt="Seychelles scenery 5">
                 </div>
             </div>
 
@@ -509,6 +629,38 @@
         </div>
     </div>
 
+    <div class="container home-gallery-section">
+        <p class="home-gallery-title">Seychelles Highlights</p>
+        <div class="row">
+            <div class="col-md-4 col-sm-6">
+                <div class="home-photo-card">
+                    <img src="./Images/scenery3.png" alt="Seychelles island scenery">
+                    <div class="home-photo-caption">
+                        <strong>Island Coastline</strong>
+                        <span>Ocean views, beaches, and tropical island landscapes.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="home-photo-card">
+                    <img src="./Images/scenery4.png" alt="Seychelles coastal view">
+                    <div class="home-photo-caption">
+                        <strong>Local Landscape</strong>
+                        <span>A relaxing setting for academic exchange and exploration.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div class="home-photo-card">
+                    <img src="./Images/scenery5.png" alt="Seychelles travel view">
+                    <div class="home-photo-caption">
+                        <strong>Nature and Culture</strong>
+                        <span>Participants may plan optional visits before or after the conference.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container text-justify site-section">
         <div class="intro-panel">
             <div class="text-center">
@@ -559,6 +711,7 @@
                 <li>Prepare the camera-ready manuscript.</li>
                 <li>Complete final submission through CMT by June 20, 2026.</li>
                 <li>Complete registration by June 20, 2026.</li>
+                <li>Submit short paper / extended abstract by June 30, 2026 if applicable.</li>
                 <li>Check accommodation and travel information.</li>
             </ol>
         </div>

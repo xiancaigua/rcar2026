@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:image" content="" />
     <meta property="og:title" content="IEEE RCAR 2026">
-    <meta property="og:description" content="Conference description">
+    <meta property="og:description" content="Preliminary program schedule for IEEE RCAR 2026">
     <meta property="og:type" content="website">
     <meta property="og:url" content="">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
+
     <link href="./CSS/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="./CSS/style.css" />
     <link rel="stylesheet" href="./CSS/animate.css" />
@@ -22,29 +23,32 @@
     <link href="./CSS/bootstrap-theme.min.css" rel="stylesheet" />
     <link href='https://fonts.googleapis.com/css?family=Armata&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="./CSS/swiper.min.css"/>
+
     <style>
-        table.gridtable {
-            font-family: verdana,arial,sans-serif;
-            font-size:15px;
-            color:#333333;
-            border-width: 1px;
-            border-color: #666666;
-            border-collapse: collapse;
-            width: 100%;
-        }
-        table.gridtable th, table.gridtable td {
-            border-width: 1px;
-            padding: 8px;
-            border-style: solid;
-            border-color: #666666;
-            background-color: #ffffff;
-        }
-        table.gridtable th { background-color: #dedede; }
+        body { background: linear-gradient(180deg, #ffffff 0%, #f7fbfc 45%, #ffffff 100%); }
+        .program-page { font-family: "Helvetica Neue", Arial, sans-serif; color: #2f3e46; }
+        .program-hero { margin-top: 24px; border: 1px solid #d9e5e8; border-radius: 16px; padding: 28px 32px; background: linear-gradient(135deg, #edf8ff 0%, #edf9f6 55%, #fff7e8 100%); box-shadow: 0 12px 28px rgba(30,80,100,0.08); text-align: left; }
+        .program-title { color: #27445c; margin-top: 0; font-size: 32pt; text-align: center; letter-spacing: 0.5px; }
+        .program-title:after { content: ""; display: block; width: 76px; height: 3px; margin: 12px auto 0 auto; border-radius: 3px; background: linear-gradient(90deg, #1677b3, #1aa39a); }
+        .program-lead { max-width: 960px; margin: 18px auto 0 auto; font-size: 15.2pt; line-height: 1.75; text-align: left; color: #31444f; }
+        .notice-box { border-left: 5px solid #1aa39a; background: #f5fbfa; padding: 14px 18px; margin-top: 18px; font-size: 14.5pt; line-height: 1.7; text-align: left; }
+        .warning-box { border-left: 5px solid #d99a22; background: #fff9ed; padding: 14px 18px; margin-top: 18px; font-size: 14.5pt; line-height: 1.7; text-align: left; }
+        .section-title { color: #27445c; font-size: 22pt; font-weight: bold; margin-top: 32px; margin-bottom: 16px; padding-left: 12px; border-left: 5px solid #1aa39a; text-align: left; }
+        .schedule-table { width: 100%; border-collapse: collapse; font-size: 13.5pt; color: #2f3e46; background: #ffffff; }
+        .schedule-table th { background: #e7f3f6; color: #27445c; font-weight: bold; border: 1px solid #bfd4dc; padding: 10px; text-align: left; }
+        .schedule-table td { border: 1px solid #d5e3e8; padding: 10px; vertical-align: top; line-height: 1.55; text-align: left; }
+        .schedule-table tr:nth-child(even) td { background: #fbfdfe; }
+        .tag { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11.5pt; margin-top: 4px; background: #eef8ff; color: #1677b3; border: 1px solid #d2e9f6; }
+        .tag-warning { background: #fff7e8; color: #9a6a10; border-color: #ead39a; }
+        .bottom-spacer { margin-top: 100px; text-align: center; }
+        @media (max-width: 768px) { .program-title { font-size: 26pt; } .program-lead { font-size: 14pt; } .section-title { font-size: 19pt; } .schedule-table { font-size: 12.5pt; } }
     </style>
+
     <script src="./Scripts/jquery-1.11.3.js?v=20220702"></script>
     <script src="./Scripts/jquery.countdown.js?v=20220702"></script>
     <script src="./Scripts/viewportchecker.min.js?v=20220702"></script>
 </head>
+
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 <nav class="navbar navbar-custom navbar-static-top">
     <div class="container_fluid">
@@ -100,31 +104,91 @@
     </div>
 </nav>
 
-    <div class="container text-justify" style="margin-top: 20px;">
-        <div class="text-center"><p style="color:rgb(68, 73, 75);font-size: 30pt;">Program at a Glance</p></div>
+    <div class="container program-page">
+        <div class="program-hero">
+            <p class="program-title">Program at a Glance</p>
+            <p class="program-lead">
+                The following preliminary schedule is provided for travel planning purposes. The detailed technical program,
+                session allocation, plenary speakers, keynote speakers, workshop information, and local program arrangements
+                will be updated after final confirmation by the organizing committee.
+            </p>
+            <div class="warning-box">
+                The pre-conference workshop on August 17-18 is tentative and may be adjusted or cancelled after confirmation.
+                Participants should not treat the workshop schedule as final until an official announcement is released.
+            </div>
+        </div>
 
-        <p style="font-size: 15pt;">
-            The detailed technical program will be announced after the final submission and registration process is completed.
-            The following preliminary schedule is provided for travel planning purposes and may be subject to change.
-        </p>
+        <p class="section-title">Preliminary Schedule</p>
 
-        <table class="gridtable" style="margin-top: 12px;">
-            <tr><th>Date</th><th>Morning</th><th>Afternoon</th><th>Evening</th></tr>
-            <tr><td>August 16, 2026</td><td>Arrival</td><td>Registration</td><td>Informal gathering / free time</td></tr>
-            <tr><td>August 17, 2026</td><td>Workshops / Tutorials / Registration</td><td>Workshops / Tutorials / Registration</td><td>Welcome Reception</td></tr>
-            <tr><td>August 18, 2026</td><td>Opening Ceremony, Plenary Talk, Technical Sessions</td><td>Technical Sessions / Organized Sessions</td><td>Conference Banquet</td></tr>
-            <tr><td>August 19, 2026</td><td>Keynote Talk, Technical Sessions</td><td>Technical Sessions / Poster Sessions</td><td>Farewell Event</td></tr>
-            <tr><td>August 20, 2026</td><td>Workshops / Technical Activities / Local Program</td><td>Local Program / Free Discussion</td><td>To be confirmed</td></tr>
-            <tr><td>August 21, 2026</td><td>Local Program / Academic Exchange</td><td>Local Program</td><td>To be confirmed</td></tr>
-            <tr><td>August 22, 2026</td><td>Departure</td><td>Departure</td><td>-</td></tr>
-        </table>
+        <div class="table-responsive">
+            <table class="schedule-table">
+                <tr>
+                    <th>Date</th>
+                    <th>Morning</th>
+                    <th>Afternoon</th>
+                    <th>Evening</th>
+                    <th>Notes</th>
+                </tr>
+                <tr>
+                    <td>August 16, 2026</td>
+                    <td>Arrival / free time</td>
+                    <td>Workshop registration</td>
+                    <td>Informal gathering / free time</td>
+                    <td><span class="tag">Workshop registration</span></td>
+                </tr>
+                <tr>
+                    <td>August 17, 2026</td>
+                    <td>Tentative pre-conference workshop</td>
+                    <td>Tentative pre-conference workshop</td>
+                    <td>To be confirmed</td>
+                    <td><span class="tag tag-warning">Tentative / subject to confirmation</span></td>
+                </tr>
+                <tr>
+                    <td>August 18, 2026</td>
+                    <td>Tentative pre-conference workshop</td>
+                    <td>Tentative pre-conference workshop</td>
+                    <td>To be confirmed</td>
+                    <td><span class="tag tag-warning">Tentative / subject to confirmation</span></td>
+                </tr>
+                <tr>
+                    <td>August 19, 2026</td>
+                    <td>Arrival / free time</td>
+                    <td>Main conference registration starts</td>
+                    <td>To be confirmed</td>
+                    <td><span class="tag">Registration</span></td>
+                </tr>
+                <tr>
+                    <td>August 20, 2026</td>
+                    <td>Plenary talk + keynote talk</td>
+                    <td>Student paper presentations</td>
+                    <td>Conference banquet</td>
+                    <td><span class="tag">Main conference program</span></td>
+                </tr>
+                <tr>
+                    <td>August 21, 2026</td>
+                    <td>Plenary talk + keynote talk</td>
+                    <td>Student paper presentations, including possible online / hybrid presentations</td>
+                    <td>To be confirmed</td>
+                    <td><span class="tag">Presentation sessions</span></td>
+                </tr>
+                <tr>
+                    <td>August 22, 2026</td>
+                    <td>Optional Marine Park one-day tour / local program</td>
+                    <td>Optional Marine Park one-day tour / departure</td>
+                    <td>Departure / free time</td>
+                    <td><span class="tag tag-warning">Optional local program, subject to confirmation</span></td>
+                </tr>
+            </table>
+        </div>
 
-        <p style="font-size: 15pt; margin-top: 12px;">
-            The final schedule, session allocation, plenary speakers, keynote speakers, and workshop information will be updated later.
-        </p>
+        <div class="notice-box">
+            The final schedule may change according to workshop confirmation, registration progress, speaker availability,
+            student presentation arrangements, and local program planning. Optional tours or local programs are not included
+            in the registration fee unless explicitly announced by the organizing committee.
+        </div>
     </div>
 
-    <div class="container" style="margin-top: 100px;text-align:center">
+    <div class="container bottom-spacer">
         <table>
             <tr>
                 <td style="width: 70%;"><img src="./Images/bottom6.png" class="img-responsive center-block" style="width: 100%;" /></td>
