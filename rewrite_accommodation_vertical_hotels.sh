@@ -1,0 +1,414 @@
+#!/usr/bin/env bash
+set -e
+
+# RCAR 2026: rewrite accommodation.html into a cleaner vertical hotel layout.
+#
+# Requested changes:
+# 1) Put the 5-star hotel first: Savoy Resort & Spa Seychelles.
+# 2) Put the 4-star hotel second: Coral Strand Smart Choice Hotel.
+# 3) Arrange the two hotels vertically, not side by side.
+# 4) Keep the page concise: one photo per hotel + room type + nightly rate table.
+# 5) Remove long/excessive explanatory notes marked in the screenshot.
+# 6) Add hotel website links:
+#    - Coral Strand official website is included.
+#    - Savoy official website is left as To be confirmed if not verified by the committee.
+#
+# Run in website root, e.g. /var/www/rcar2026.
+
+CONFERENCE_EMAIL="${CONFERENCE_EMAIL:-ieeercar@163.com}"
+
+ts="$(date +%Y%m%d_%H%M%S)"
+backup_dir="backup_accommodation_vertical_hotels_${ts}"
+mkdir -p "$backup_dir"
+cp accommodation.html nav1.html "$backup_dir"/ 2>/dev/null || true
+
+if [ ! -f nav1.html ]; then
+    echo "ERROR: nav1.html not found. Please run this script in the website root directory." >&2
+    exit 1
+fi
+
+mkdir -p Images
+
+# Image fallback:
+# Previous scripts created Images/savoy_room.jpg and Images/coral_strand_room.jpg.
+# If missing, fall back to other available Savoy images so the page will not break.
+if [ ! -f Images/savoy_room.jpg ]; then
+    if [ -f Images/savoy_pool_resort.png ]; then
+        cp Images/savoy_pool_resort.png Images/savoy_room.jpg
+    else
+        echo "WARNING: Images/savoy_room.jpg missing. Please upload a Savoy hotel room image."
+    fi
+fi
+
+if [ ! -f Images/coral_strand_room.jpg ]; then
+    echo "WARNING: Images/coral_strand_room.jpg missing. Please upload a Coral Strand room image."
+fi
+
+cat > accommodation.html <<EOF_HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Accommodation - IEEE RCAR 2026</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="IEEE RCAR 2026">
+    <meta property="og:description" content="Accommodation information for IEEE RCAR 2026">
+    <meta property="og:type" content="website">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link href="./CSS/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./CSS/style.css" />
+    <link rel="stylesheet" href="./CSS/animate.css" />
+    <link rel="stylesheet" href="./CSS/hover.css"/>
+    <link href="./CSS/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Armata&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="./CSS/swiper.min.css"/>
+
+    <style>
+        body {
+            background: linear-gradient(180deg, #ffffff 0%, #f7fbfc 45%, #ffffff 100%);
+        }
+
+        .page {
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            color: #2f3e46;
+        }
+
+        .hero {
+            margin-top: 24px;
+            border: 1px solid #d9e5e8;
+            border-radius: 18px;
+            padding: 28px 32px;
+            background: linear-gradient(135deg, #edf8ff 0%, #edf9f6 55%, #fff7e8 100%);
+            box-shadow: 0 14px 32px rgba(30,80,100,.10);
+            text-align: left;
+        }
+
+        .title {
+            color: #27445c;
+            margin-top: 0;
+            font-size: 32pt;
+            text-align: center;
+            letter-spacing: .5px;
+        }
+
+        .title:after {
+            content: "";
+            display: block;
+            width: 76px;
+            height: 3px;
+            margin: 12px auto 0;
+            border-radius: 3px;
+            background: linear-gradient(90deg, #1677b3, #1aa39a);
+        }
+
+        .lead {
+            max-width: 940px;
+            margin: 18px auto 0;
+            font-size: 15pt;
+            line-height: 1.7;
+            text-align: center;
+            color: #31444f;
+        }
+
+        .section-title {
+            color: #27445c;
+            font-size: 22pt;
+            font-weight: bold;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            padding-left: 12px;
+            border-left: 5px solid #1aa39a;
+            text-align: left;
+        }
+
+        .hotel-card {
+            border: 1px solid #d9e5e8;
+            border-radius: 18px;
+            background: #ffffff;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 12px 28px rgba(30,70,90,.10);
+        }
+
+        .hotel-photo {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hotel-body {
+            padding: 24px 26px;
+        }
+
+        .hotel-topline {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .hotel-title {
+            color: #27445c;
+            font-size: 23pt;
+            font-weight: bold;
+            margin: 0;
+            line-height: 1.25;
+        }
+
+        .hotel-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 14px;
+            background: #eef8ff;
+            color: #1677b3;
+            border: 1px solid #d2e9f6;
+            font-size: 12.5pt;
+            white-space: nowrap;
+        }
+
+        .hotel-meta {
+            color: #5d6d75;
+            font-size: 14pt;
+            margin-bottom: 16px;
+            line-height: 1.55;
+        }
+
+        .hotel-meta a {
+            font-weight: bold;
+        }
+
+        .rate-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13.7pt;
+            color: #2f3e46;
+            background: #ffffff;
+        }
+
+        .rate-table th {
+            background: #e7f3f6;
+            color: #27445c;
+            font-weight: bold;
+            border: 1px solid #bfd4dc;
+            padding: 11px;
+            text-align: left;
+        }
+
+        .rate-table td {
+            border: 1px solid #d5e3e8;
+            padding: 11px;
+            vertical-align: top;
+            line-height: 1.55;
+            text-align: left;
+        }
+
+        .rate-table tr:nth-child(even) td {
+            background: #fbfdfe;
+        }
+
+        .muted {
+            color: #66757d;
+            font-size: 12.2pt;
+        }
+
+        .mini-note {
+            font-size: 13.8pt;
+            line-height: 1.6;
+            margin-top: 12px;
+            color: #4a5960;
+        }
+
+        .notice {
+            border-left: 5px solid #1aa39a;
+            background: #f5fbfa;
+            padding: 14px 18px;
+            margin-top: 18px;
+            font-size: 14.5pt;
+            line-height: 1.7;
+            text-align: left;
+        }
+
+        .warning {
+            border-left: 5px solid #d99a22;
+            background: #fff9ed;
+            padding: 14px 18px;
+            margin-top: 18px;
+            font-size: 14.5pt;
+            line-height: 1.7;
+            text-align: left;
+        }
+
+        .note-list {
+            font-size: 14.2pt;
+            line-height: 1.65;
+            text-align: left;
+            padding-left: 22px;
+            margin-bottom: 0;
+        }
+
+        .note-list li {
+            margin-top: 8px;
+        }
+
+        .bottom-spacer {
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        @media(max-width:768px) {
+            .title { font-size: 26pt; }
+            .lead { font-size: 14pt; text-align: left; }
+            .section-title { font-size: 19pt; }
+            .hotel-photo { height: 230px; }
+            .hotel-title { font-size: 19pt; }
+            .rate-table { font-size: 12.2pt; }
+        }
+    </style>
+
+    <script src="./Scripts/jquery-1.11.3.js?v=20220702"></script>
+    <script src="./Scripts/jquery.countdown.js?v=20220702"></script>
+    <script src="./Scripts/viewportchecker.min.js?v=20220702"></script>
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+$(cat nav1.html)
+
+    <div class="container page">
+        <div class="hero">
+            <p class="title">Accommodation</p>
+            <p class="lead">
+                Recommended hotel options and room rates for IEEE RCAR 2026 participants.
+            </p>
+        </div>
+
+        <p class="section-title">Recommended Hotels and Room Rates</p>
+
+        <div class="hotel-card">
+            <img class="hotel-photo" src="./Images/savoy_room.jpg" alt="Savoy Resort and Spa Seychelles room">
+            <div class="hotel-body">
+                <div class="hotel-topline">
+                    <p class="hotel-title">Savoy Resort &amp; Spa Seychelles</p>
+                    <span class="hotel-badge">5-star hotel</span>
+                </div>
+                <p class="hotel-meta">
+                    Meal plan: Breakfast included (BB). Group booking only.
+                    Website: <span class="muted">To be confirmed by the organizing committee</span>
+                </p>
+                <div class="table-responsive">
+                    <table class="rate-table">
+                        <tr>
+                            <th>Room Type</th>
+                            <th>Double Occupancy<br><span class="muted">2 adults / room</span></th>
+                            <th>Single Occupancy<br><span class="muted">1 adult / room</span></th>
+                        </tr>
+                        <tr>
+                            <td>Standard Garden or Mountains View Room</td>
+                            <td>USD 357 / room / night<br>RMB 2,430 / room / night</td>
+                            <td>USD 326 / room / night<br>RMB 2,220 / room / night</td>
+                        </tr>
+                        <tr>
+                            <td>Savoy Deluxe Grand Pool View Room</td>
+                            <td>USD 388 / room / night<br>RMB 2,642 / room / night</td>
+                            <td>USD 357 / room / night<br>RMB 2,430 / room / night</td>
+                        </tr>
+                    </table>
+                </div>
+                <p class="mini-note">Dinner reference: USD 70 per person per meal.</p>
+            </div>
+        </div>
+
+        <div class="hotel-card">
+            <img class="hotel-photo" src="./Images/coral_strand_room.jpg" alt="Coral Strand Smart Choice Hotel room">
+            <div class="hotel-body">
+                <div class="hotel-topline">
+                    <p class="hotel-title">Coral Strand Smart Choice Hotel</p>
+                    <span class="hotel-badge">4-star hotel</span>
+                </div>
+                <p class="hotel-meta">
+                    Meal plan: Breakfast included (BB). Group booking only.
+                    Website:
+                    <a href="https://coralstrand.com/" target="_blank" rel="noopener noreferrer">coralstrand.com</a>
+                </p>
+                <div class="table-responsive">
+                    <table class="rate-table">
+                        <tr>
+                            <th>Room Type</th>
+                            <th>Double Occupancy<br><span class="muted">2 adults / room</span></th>
+                            <th>Single Occupancy<br><span class="muted">1 adult / room</span></th>
+                        </tr>
+                        <tr>
+                            <td>Standard Signature Garden &amp; Mountains View Room</td>
+                            <td>USD 269 / room / night<br>RMB 1,830 / room / night</td>
+                            <td>USD 249 / room / night<br>RMB 1,695 / room / night</td>
+                        </tr>
+                        <tr>
+                            <td>Classic Signature Ocean View Room</td>
+                            <td>USD 288 / room / night<br>RMB 1,960 / room / night</td>
+                            <td>USD 268 / room / night<br>RMB 1,825 / room / night</td>
+                        </tr>
+                    </table>
+                </div>
+                <p class="mini-note">Dinner reference: USD 50 per person per meal.</p>
+            </div>
+        </div>
+
+        <p class="section-title">Important Notes</p>
+        <ul class="note-list">
+            <li>The hotel environmental levy is not included. Current reference: SCR 100 per person per night for large hotels; children under 12 are exempt.</li>
+            <li>Hotel booking method, booking deadline, reservation contact, payment method, and cancellation policy will be announced after final confirmation.</li>
+        </ul>
+
+        <div class="warning">
+            <strong>Seychelles Travel Authorisation:</strong>
+            All travellers are required to apply for a Travel Authorisation before travelling to Seychelles. Participants should complete the online procedure through
+            <a href="https://seychelles.govtas.com/en" target="_blank" rel="noopener noreferrer">Seychelles Electronic Border System</a>
+            or the Seychelles E-Border app before departure.
+        </div>
+
+        <div class="notice">
+            For accommodation-related questions, please contact the IEEE RCAR 2026 Organizing Committee at
+            <a href="mailto:${CONFERENCE_EMAIL}">${CONFERENCE_EMAIL}</a>.
+        </div>
+    </div>
+
+    <div class="container bottom-spacer">
+        <table>
+            <tr>
+                <td style="width:70%;"><img src="./Images/bottom6.png" class="img-responsive center-block" style="width:100%;" /></td>
+                <td style="width:40%;margin-left:5px;display:inline-block"><img class="img-responsive" src="./Images/rcar2026_logo.jpg" /></td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="./Scripts/bootstrap.min.js?v=20220702"></script>
+    <script src="./Scripts/script.js?v=20220702"></script>
+</body>
+</html>
+EOF_HTML
+
+echo "==== Checks ===="
+echo "---- vertical order ----"
+grep -n "Savoy Resort\|Coral Strand" accommodation.html
+
+echo ""
+echo "---- links and notes ----"
+grep -n "coralstrand.com\|To be confirmed by the organizing committee\|Seychelles Travel Authorisation\|SCR 100" accommodation.html || true
+
+echo ""
+echo "---- removed crossed-out long texts ----"
+if grep -n "preliminary group-booking reference rates for the period\|Accommodation, airport transfer\|optional local tours\|Rates are listed per room per night" accommodation.html; then
+    echo "WARNING: some removed long text still exists."
+    exit 1
+else
+    echo "OK: crossed-out long text removed."
+fi
+
+echo ""
+echo "Done. Backup directory: $backup_dir"
