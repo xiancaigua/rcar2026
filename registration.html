@@ -33,6 +33,7 @@
         .registration-card { background: #ffffff; border: 1px solid #d9e5e8; border-radius: 16px; padding: 22px 24px; margin-bottom: 22px; box-shadow: 0 10px 24px rgba(30,70,90,.08); text-align: left; }
         .registration-table { width: 100%; border-collapse: collapse; font-size: 14pt; color: #2f3e46; background: #ffffff; }
         .registration-table th { background: #e7f3f6; color: #27445c; font-weight: bold; border: 1px solid #bfd4dc; padding: 11px; text-align: left; }
+        .table-subnote { display: block; margin-top: 4px; font-size: 11.5pt; font-weight: normal; color: #4c6772; }
         .registration-table td { border: 1px solid #d5e3e8; padding: 11px; vertical-align: top; line-height: 1.55; text-align: left; }
         .registration-table tr:nth-child(even) td { background: #fbfdfe; }
         .registration-button { display: inline-block; margin-top: 10px; padding: 10px 22px; border-radius: 24px; background: #1677b3; color: #ffffff !important; font-size: 14.5pt; font-weight: bold; text-decoration: none; box-shadow: 0 8px 18px rgba(22,119,179,.22); }
@@ -122,16 +123,32 @@
             <span class="registration-button disabled-button">Registration Link To Be Announced</span>
         </div>
 
+                        <p class="section-title">Conference Notice</p>
+        <div class="registration-card">
+            <p style="font-size:14.5pt; line-height:1.7; margin-bottom:8px;">
+                The official conference notice for IEEE RCAR 2026 is available for download.
+            </p>
+            <a class="registration-button" href="./NOTICE.pdf" download>Download Conference Notice</a>
+        </div>
+
         <p class="section-title">Registration Fees</p>
         <div class="registration-card">
             <div class="table-responsive">
                 <table class="registration-table">
-                    <tr><th>Category</th><th>Early Registration</th><th>Regular Registration</th></tr>
+                    <tr>
+                        <th>Category</th>
+                        <th>Early Registration<br><span class="table-subnote">On or before July 10, 2026</span></th>
+                        <th>Regular Registration<br><span class="table-subnote">After July 10, 2026</span></th>
+                    </tr>
                     <tr><td>Member</td><td>USD 750<br>RMB 5,200</td><td>USD 850<br>RMB 5,900</td></tr>
                     <tr><td>Non-member</td><td>USD 850<br>RMB 5,900</td><td>USD 950<br>RMB 6,600</td></tr>
                     <tr><td>Student Member</td><td>USD 600<br>RMB 4,200</td><td>USD 700<br>RMB 4,900</td></tr>
                     <tr><td>Student Non-member</td><td>USD 700<br>RMB 4,900</td><td>USD 800<br>RMB 5,600</td></tr>
                 </table>
+            </div>
+            <div class="notice">
+                Early registration applies to registrations completed on or before <strong>July 10, 2026</strong>.
+                Regular registration applies after <strong>July 10, 2026</strong>.
             </div>
         </div>
 
@@ -145,11 +162,14 @@
                 </table>
             </div>
             <div class="warning">
-                One regular registration can cover one accepted submission. Additional papers or extra pages are subject to the additional charges listed above.
+                One full registration (i.e., student registrations are NOT full registrations) can cover a maximum of two accepted papers by the same registered author with the extra paper charge. A student registration (applies to both Student Member and Student Non-member) covers only one accepted paper.
+            </div>
+            <div class="notice">
+                The extra paper charge applies to each additional accepted paper to be presented at the conference and included in the proceedings if the additional paper(s) have no other registered authors. For papers with more than 6 pages, the author will be required to pay the extra page charge per extra page to be included in the conference proceedings.
             </div>
         </div>
 
-        <p class="section-title">Notes</p>
+<p class="section-title">Notes</p>
         <div class="registration-card">
             <ul class="note-list">
                 <li>At least one author of each accepted submission must complete registration according to the conference requirements.</li>
