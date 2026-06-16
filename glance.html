@@ -33,6 +33,18 @@
         .schedule-table th { background: #e7f3f6; color: #27445c; font-weight: bold; border: 1px solid #bfd4dc; padding: 11px; text-align: left; }
         .schedule-table td { border: 1px solid #d5e3e8; padding: 11px; vertical-align: top; line-height: 1.55; text-align: left; }
         .schedule-table tr:nth-child(even) td { background: #fbfdfe; }
+        .program-at-glance { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 42px; row-gap: 72px; margin-top: 18px; }
+        .program-day { min-height: 150px; color: #073f5d; }
+        .program-day-header { display: flex; align-items: center; border-bottom: 3px solid #0b4f6b; margin-bottom: 14px; padding-bottom: 0; }
+        .program-day-label { display: inline-block; background: #0b4f6b; color: #ffffff; font-weight: bold; font-size: 14pt; line-height: 1.25; padding: 5px 8px; margin-right: 8px; letter-spacing: .3px; white-space: nowrap; }
+        .program-day-date { color: #073f5d; font-size: 14.5pt; font-style: italic; font-weight: bold; white-space: nowrap; }
+        .program-period { display: grid; grid-template-columns: 64px 1fr; column-gap: 10px; align-items: start; margin-top: 14px; }
+        .program-period + .program-period { margin-top: 26px; }
+        .program-period-label { display: inline-block; width: 64px; text-align: center; background: #14607f; color: #ffffff; border: 2px solid #06384d; border-radius: 5px; font-size: 13.5pt; line-height: 1.25; padding: 3px 0; box-shadow: 0 1px 0 rgba(0,0,0,.25); }
+        .program-items { margin: 0; padding-left: 18px; color: #073f5d; font-size: 13.2pt; line-height: 1.35; font-weight: 600; }
+        .program-items li { margin: 1px 0; }
+        @media(max-width:992px) { .program-at-glance { grid-template-columns: repeat(2, 1fr); column-gap: 30px; row-gap: 48px; } }
+        @media(max-width:640px) { .program-at-glance { grid-template-columns: 1fr; row-gap: 36px; } .program-day-date { font-size: 13pt; white-space: normal; } .program-items { font-size: 12.5pt; } }
         .timetable-day { margin-top: 20px; border: 1px solid #d5e3e8; border-radius: 14px; overflow: hidden; background: #ffffff; }
         .timetable-title { margin: 0; padding: 12px 16px; background: linear-gradient(90deg,#e7f3f6,#f5fbfa); color: #27445c; font-size: 16pt; font-weight: bold; }
         .schedule-table .time-col { width: 15%; white-space: nowrap; font-weight: bold; color: #27445c; }
@@ -112,146 +124,147 @@
             <p class="title">Program at a Glance</p>
             <p class="lead">
                 The preliminary program of IEEE RCAR 2026 is scheduled for <strong>August 15-21, 2026</strong>.
-                The preliminary timetable is shown below and will be updated after final confirmation by the organizing committee.
+                The preliminary program at a glance is shown below.
             </p>
         </div>
 
-                <p class="section-title">Preliminary Timetable</p>
+                        <p class="section-title">Preliminary Schedule</p>
         <div class="schedule-card">
-            <div class="notice">
-                The timetable below is preliminary and subject to final confirmation. Detailed session titles, room assignments,
-                speakers, paper IDs, technical tour information, and online-session arrangements will be updated later.
-            </div>
-
-            <div class="timetable-day">
-                <p class="timetable-title">Saturday, August 15, 2026 — Workshop</p>
-                <div class="table-responsive">
-                    <table class="schedule-table">
-                        <tr><th>Time</th><th>Room 1</th><th>Room 2</th><th>Room 3</th><th>Room 4 / Online</th><th>Notes</th></tr>
-                        <tr><td class="time-col">09:00-12:00</td><td colspan="4" class="session-cell">Workshop Sessions</td><td>Room information TBC</td></tr>
-                        <tr class="break-row"><td colspan="6">12:00-13:30 Lunch Break</td></tr>
-                        <tr><td class="time-col">13:30-17:30</td><td colspan="4" class="session-cell">Workshop Sessions</td><td>Room information TBC</td></tr>
-                        <tr><td class="time-col">Evening</td><td colspan="4" class="session-cell muted">To be confirmed</td><td>TBC</td></tr>
-                    </table>
+            <div class="program-at-glance">
+                <div class="program-day">
+                    <div class="program-day-header">
+                        <span class="program-day-label">DAY 1</span>
+                        <span class="program-day-date">Saturday, August 15</span>
+                    </div>
+                    <div class="program-period">
+                        <span class="program-period-label">AM</span>
+                        <ul class="program-items">
+                            <li>Workshop</li>
+                        </ul>
+                    </div>
+                    <div class="program-period">
+                        <span class="program-period-label">PM</span>
+                        <ul class="program-items">
+                            <li>Workshop</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <div class="timetable-day">
-                <p class="timetable-title">Sunday, August 16, 2026 — Workshop</p>
-                <div class="table-responsive">
-                    <table class="schedule-table">
-                        <tr><th>Time</th><th>Room 1</th><th>Room 2</th><th>Room 3</th><th>Room 4 / Online</th><th>Notes</th></tr>
-                        <tr><td class="time-col">09:00-12:00</td><td colspan="4" class="session-cell">Workshop Sessions</td><td>Room information TBC</td></tr>
-                        <tr class="break-row"><td colspan="6">12:00-13:30 Lunch Break</td></tr>
-                        <tr><td class="time-col">13:30-17:30</td><td colspan="4" class="session-cell">Workshop Sessions</td><td>Room information TBC</td></tr>
-                        <tr><td class="time-col">Evening</td><td colspan="4" class="session-cell muted">To be confirmed</td><td>TBC</td></tr>
-                    </table>
+                <div class="program-day">
+                    <div class="program-day-header">
+                        <span class="program-day-label">DAY 2</span>
+                        <span class="program-day-date">Sunday, August 16</span>
+                    </div>
+                    <div class="program-period">
+                        <span class="program-period-label">AM</span>
+                        <ul class="program-items">
+                            <li>Workshop</li>
+                        </ul>
+                    </div>
+                    <div class="program-period">
+                        <span class="program-period-label">PM</span>
+                        <ul class="program-items">
+                            <li>Workshop</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <div class="timetable-day">
-                <p class="timetable-title">Monday, August 17, 2026 — Arrival and Registration</p>
-                <div class="table-responsive">
-                    <table class="schedule-table">
-                        <tr><th>Time</th><th>Room 1</th><th>Room 2</th><th>Room 3</th><th>Room 4 / Online</th><th>Notes</th></tr>
-                        <tr><td class="time-col">09:00-12:00</td><td colspan="4" class="session-cell">Arrival / Free Time</td><td>Venue information TBC</td></tr>
-                        <tr class="break-row"><td colspan="6">12:00-13:30 Lunch Break</td></tr>
-                        <tr><td class="time-col">13:30-17:30</td><td colspan="4" class="session-cell">Registration</td><td>Registration desk TBC</td></tr>
-                        <tr><td class="time-col">Evening</td><td colspan="4" class="session-cell muted">To be confirmed</td><td>TBC</td></tr>
-                    </table>
+                <div class="program-day">
+                    <div class="program-day-header">
+                        <span class="program-day-label">DAY 3</span>
+                        <span class="program-day-date">Monday, August 17</span>
+                    </div>
+                    <div class="program-period">
+                        <span class="program-period-label">AM</span>
+                        <ul class="program-items">
+                            <li>Arrival / free time</li>
+                        </ul>
+                    </div>
+                    <div class="program-period">
+                        <span class="program-period-label">PM</span>
+                        <ul class="program-items">
+                            <li>Registration</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <div class="timetable-day">
-                <p class="timetable-title">Tuesday, August 18, 2026 — Main Conference</p>
-                <div class="table-responsive">
-                    <table class="schedule-table">
-                        <tr><th>Time</th><th>Room 1</th><th>Room 2</th><th>Room 3</th><th>Room 4 / Online</th><th>Notes</th></tr>
-                        <tr><td class="time-col">09:00-09:10</td><td colspan="4" class="session-cell">Conference Opening Ceremony</td><td>Room 1</td></tr>
-                        <tr><td class="time-col">09:10-10:30</td><td colspan="4" class="session-cell">Plenary Talk / Keynote Talk</td><td>Speaker information TBC</td></tr>
-                        <tr class="break-row"><td colspan="6">10:30-10:50 Coffee Break</td></tr>
-                        <tr><td class="time-col">10:50-12:00</td><td colspan="4" class="session-cell">Plenary Talk / Keynote Talk</td><td>Speaker information TBC</td></tr>
-                        <tr class="break-row"><td colspan="6">12:00-13:30 Lunch Break</td></tr>
-                        <tr>
-                            <td class="time-col">13:30-15:30</td>
-                            <td class="session-cell">Technical Session<span class="room-label">Room 1</span></td>
-                            <td class="session-cell">Technical Session<span class="room-label">Room 2</span></td>
-                            <td class="session-cell">Technical Session<span class="room-label">Room 3</span></td>
-                            <td class="session-cell">Technical Session<span class="room-label">Room 4 / Online</span></td>
-                            <td>Session details TBC</td>
-                        </tr>
-                        <tr class="break-row"><td colspan="6">15:30-15:50 Coffee Break</td></tr>
-                        <tr>
-                            <td class="time-col">15:50-17:50</td>
-                            <td class="session-cell">Technical Session<span class="room-label">Room 1</span></td>
-                            <td class="session-cell">Technical Session<span class="room-label">Room 2</span></td>
-                            <td class="session-cell">Technical Session<span class="room-label">Room 3</span></td>
-                            <td class="session-cell">Technical Session<span class="room-label">Room 4 / Online</span></td>
-                            <td>Session details TBC</td>
-                        </tr>
-                        <tr><td class="time-col">18:30-20:30</td><td colspan="4" class="session-cell">Conference Banquet</td><td>Location TBC</td></tr>
-                    </table>
+                <div class="program-day">
+                    <div class="program-day-header">
+                        <span class="program-day-label">DAY 4</span>
+                        <span class="program-day-date">Tuesday, August 18</span>
+                    </div>
+                    <div class="program-period">
+                        <span class="program-period-label">AM</span>
+                        <ul class="program-items">
+                            <li>Plenary talk + keynote talk</li>
+                        </ul>
+                    </div>
+                    <div class="program-period">
+                        <span class="program-period-label">PM</span>
+                        <ul class="program-items">
+                            <li>Technical session</li>
+                            <li>Conference banquet</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <div class="timetable-day">
-                <p class="timetable-title">Wednesday, August 19, 2026 — Main Conference</p>
-                <div class="table-responsive">
-                    <table class="schedule-table">
-                        <tr><th>Time</th><th>Room 1</th><th>Room 2</th><th>Room 3</th><th>Room 4 / Online</th><th>Notes</th></tr>
-                        <tr><td class="time-col">09:00-10:30</td><td colspan="4" class="session-cell">Plenary Talk / Keynote Talk</td><td>Speaker information TBC</td></tr>
-                        <tr class="break-row"><td colspan="6">10:30-10:50 Coffee Break</td></tr>
-                        <tr><td class="time-col">10:50-12:00</td><td colspan="4" class="session-cell">Plenary Talk / Keynote Talk</td><td>Speaker information TBC</td></tr>
-                        <tr class="break-row"><td colspan="6">12:00-13:30 Lunch Break</td></tr>
-                        <tr>
-                            <td class="time-col">13:30-15:30</td>
-                            <td class="session-cell">Technical Session<span class="room-label">Room 1</span></td>
-                            <td class="session-cell">Technical Session<span class="room-label">Room 2</span></td>
-                            <td class="session-cell">Technical Session<span class="room-label">Room 3</span></td>
-                            <td class="session-cell">Technical Session<span class="room-label">Room 4 / Online</span></td>
-                            <td>Session details TBC</td>
-                        </tr>
-                        <tr class="break-row"><td colspan="6">15:30-15:50 Coffee Break</td></tr>
-                        <tr>
-                            <td class="time-col">15:50-17:50</td>
-                            <td class="session-cell">Technical Session<span class="room-label">Room 1</span></td>
-                            <td class="session-cell">Technical Session<span class="room-label">Room 2</span></td>
-                            <td class="session-cell">Technical Session<span class="room-label">Room 3</span></td>
-                            <td class="session-cell">Technical Session<span class="room-label">Room 4 / Online</span></td>
-                            <td>Session details TBC</td>
-                        </tr>
-                        <tr><td class="time-col">Evening</td><td colspan="4" class="session-cell muted">To be confirmed</td><td>TBC</td></tr>
-                    </table>
+                <div class="program-day">
+                    <div class="program-day-header">
+                        <span class="program-day-label">DAY 5</span>
+                        <span class="program-day-date">Wednesday, August 19</span>
+                    </div>
+                    <div class="program-period">
+                        <span class="program-period-label">AM</span>
+                        <ul class="program-items">
+                            <li>Plenary talk + keynote talk</li>
+                        </ul>
+                    </div>
+                    <div class="program-period">
+                        <span class="program-period-label">PM</span>
+                        <ul class="program-items">
+                            <li>Technical session</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <div class="timetable-day">
-                <p class="timetable-title">Thursday, August 20, 2026 — Technical Tour / Online Sessions</p>
-                <div class="table-responsive">
-                    <table class="schedule-table">
-                        <tr><th>Time</th><th>Room 1</th><th>Room 2</th><th>Room 3</th><th>Room 4 / Online</th><th>Notes</th></tr>
-                        <tr><td class="time-col">09:00-12:00</td><td colspan="3" class="session-cell">Technical Tour</td><td class="session-cell">Online Session</td><td>Arrangement TBC</td></tr>
-                        <tr class="break-row"><td colspan="6">12:00-13:30 Lunch Break</td></tr>
-                        <tr><td class="time-col">13:30-17:30</td><td colspan="3" class="session-cell">Technical Tour</td><td class="session-cell">Online Session</td><td>Arrangement TBC</td></tr>
-                        <tr><td class="time-col">Evening</td><td colspan="3" class="session-cell muted">To be confirmed</td><td class="session-cell">Online Session</td><td>TBC</td></tr>
-                    </table>
+                <div class="program-day">
+                    <div class="program-day-header">
+                        <span class="program-day-label">DAY 6</span>
+                        <span class="program-day-date">Thursday, August 20</span>
+                    </div>
+                    <div class="program-period">
+                        <span class="program-period-label">AM</span>
+                        <ul class="program-items">
+                            <li>Technical tour</li>
+                        </ul>
+                    </div>
+                    <div class="program-period">
+                        <span class="program-period-label">PM</span>
+                        <ul class="program-items">
+                            <li>Technical tour / online session</li>
+                            <li>Online session</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <div class="timetable-day">
-                <p class="timetable-title">Friday, August 21, 2026 — Online Sessions and Departure</p>
-                <div class="table-responsive">
-                    <table class="schedule-table">
-                        <tr><th>Time</th><th>Room 1</th><th>Room 2</th><th>Room 3</th><th>Room 4 / Online</th><th>Notes</th></tr>
-                        <tr><td class="time-col">09:00-12:00</td><td colspan="3" class="session-cell muted">Departure / Free Time</td><td class="session-cell">Online Session</td><td>Arrangement TBC</td></tr>
-                        <tr class="break-row"><td colspan="6">12:00-13:30 Lunch Break</td></tr>
-                        <tr><td class="time-col">13:30-15:30</td><td colspan="3" class="session-cell">Departure</td><td class="session-cell">Online Session</td><td>Arrangement TBC</td></tr>
-                    </table>
+                <div class="program-day">
+                    <div class="program-day-header">
+                        <span class="program-day-label">DAY 7</span>
+                        <span class="program-day-date">Friday, August 21</span>
+                    </div>
+                    <div class="program-period">
+                        <span class="program-period-label">AM</span>
+                        <ul class="program-items">
+                            <li>Online session</li>
+                        </ul>
+                    </div>
+                    <div class="program-period">
+                        <span class="program-period-label">PM</span>
+                        <ul class="program-items">
+                            <li>Online session / departure</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-
-            <div class="timetable-note">
-                This timetable follows the day-by-day program-at-a-glance format. The final program may be adjusted according to paper acceptance, session grouping, speaker availability, venue arrangement, and online-session requirements.
             </div>
         </div>
     </div>
