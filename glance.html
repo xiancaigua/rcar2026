@@ -22,114 +22,21 @@
 
     <style>
         body { background: linear-gradient(180deg, #ffffff 0%, #f7fbfc 45%, #ffffff 100%); }
-        .program-page { font-family: "Helvetica Neue", Arial, sans-serif; color:#2f3e46; }
-        .program-hero {
-            margin-top: 24px;
-            border: 1px solid #d9e5e8;
-            border-radius: 18px;
-            padding: 30px 34px;
-            background: linear-gradient(135deg, #edf8ff 0%, #edf9f6 55%, #fff7e8 100%);
-            box-shadow: 0 14px 32px rgba(30,80,100,0.10);
-            text-align: left;
-        }
-        .program-title {
-            color: #27445c;
-            margin-top: 0;
-            font-size: 32pt;
-            text-align: center;
-            letter-spacing: 0.5px;
-        }
-        .program-title:after {
-            content: "";
-            display: block;
-            width: 76px;
-            height: 3px;
-            margin: 12px auto 0 auto;
-            border-radius: 3px;
-            background: linear-gradient(90deg, #1677b3, #1aa39a);
-        }
-        .program-lead {
-            max-width: 960px;
-            margin: 18px auto 0 auto;
-            font-size: 15.2pt;
-            line-height: 1.75;
-            text-align: left;
-            color: #31444f;
-        }
-        .notice-box {
-            border-left: 5px solid #1aa39a;
-            background: #f5fbfa;
-            padding: 14px 18px;
-            margin-top: 18px;
-            font-size: 14.5pt;
-            line-height: 1.7;
-            text-align: left;
-        }
-        .warning-box {
-            border-left: 5px solid #d99a22;
-            background: #fff9ed;
-            padding: 14px 18px;
-            margin-top: 18px;
-            font-size: 14.5pt;
-            line-height: 1.7;
-            text-align: left;
-        }
-        .section-title {
-            color: #27445c;
-            font-size: 22pt;
-            font-weight: bold;
-            margin-top: 32px;
-            margin-bottom: 16px;
-            padding-left: 12px;
-            border-left: 5px solid #1aa39a;
-            text-align: left;
-        }
-        .status-card {
-            background: #ffffff;
-            border: 1px solid #d9e5e8;
-            border-radius: 16px;
-            padding: 22px 24px;
-            box-shadow: 0 10px 24px rgba(30,70,90,.08);
-            text-align: left;
-        }
-        .status-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 14pt;
-            color: #2f3e46;
-            background: #ffffff;
-        }
-        .status-table th {
-            background: #e7f3f6;
-            color: #27445c;
-            font-weight: bold;
-            border: 1px solid #bfd4dc;
-            padding: 10px;
-            text-align: left;
-        }
-        .status-table td {
-            border: 1px solid #d5e3e8;
-            padding: 10px;
-            vertical-align: top;
-            line-height: 1.55;
-            text-align: left;
-        }
-        .tag-tbc {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 12px;
-            background: #fff7e8;
-            color: #9a6a10;
-            border: 1px solid #ead39a;
-            font-size: 12pt;
-        }
-        .bottom-spacer { margin-top:100px; text-align:center; }
-        @media(max-width:768px) {
-            .program-title { font-size:26pt; }
-            .program-lead { font-size:14pt; }
-            .section-title { font-size:19pt; }
-            .status-table { font-size:12.5pt; }
-        }
+        .page { font-family: "Helvetica Neue", Arial, sans-serif; color: #2f3e46; }
+        .hero { margin-top: 24px; border: 1px solid #d9e5e8; border-radius: 18px; padding: 28px 32px; background: linear-gradient(135deg, #edf8ff 0%, #edf9f6 55%, #fff7e8 100%); box-shadow: 0 14px 32px rgba(30,80,100,.10); text-align: left; }
+        .title { color: #27445c; margin-top: 0; font-size: 32pt; text-align: center; letter-spacing: .5px; }
+        .title:after { content: ""; display: block; width: 76px; height: 3px; margin: 12px auto 0; border-radius: 3px; background: linear-gradient(90deg,#1677b3,#1aa39a); }
+        .lead { max-width: 960px; margin: 18px auto 0; font-size: 15.2pt; line-height: 1.75; text-align: left; color: #31444f; }
+        .section-title { color: #27445c; font-size: 22pt; font-weight: bold; margin-top: 32px; margin-bottom: 16px; padding-left: 12px; border-left: 5px solid #1aa39a; text-align: left; }
+        .schedule-card { background: #ffffff; border: 1px solid #d9e5e8; border-radius: 16px; padding: 22px 24px; margin-bottom: 22px; box-shadow: 0 10px 24px rgba(30,70,90,.08); text-align: left; }
+        .schedule-table { width: 100%; border-collapse: collapse; font-size: 14pt; color: #2f3e46; background: #ffffff; }
+        .schedule-table th { background: #e7f3f6; color: #27445c; font-weight: bold; border: 1px solid #bfd4dc; padding: 11px; text-align: left; }
+        .schedule-table td { border: 1px solid #d5e3e8; padding: 11px; vertical-align: top; line-height: 1.55; text-align: left; }
+        .schedule-table tr:nth-child(even) td { background: #fbfdfe; }
+        .tag { display: inline-block; padding: 3px 10px; border-radius: 12px; background: #eef8ff; color: #1677b3; border: 1px solid #d2e9f6; font-size: 12.2pt; margin-top: 2px; }
+        .notice { border-left: 5px solid #1aa39a; background: #f5fbfa; padding: 14px 18px; margin-top: 18px; font-size: 14.5pt; line-height: 1.7; text-align: left; }
+        .bottom-spacer { margin-top: 100px; text-align: center; }
+        @media(max-width:768px) { .title { font-size: 26pt; } .lead { font-size: 14pt; } .section-title { font-size: 19pt; } .schedule-table { font-size: 12.2pt; } }
     </style>
 
     <script src="./Scripts/jquery-1.11.3.js?v=20220702"></script>
@@ -192,66 +99,38 @@
     </div>
 </nav>
 
-    <div class="container program-page">
-        <div class="program-hero">
-            <p class="program-title">Program at a Glance</p>
-            <p class="program-lead">
-                The detailed program schedule of IEEE RCAR 2026 is currently being updated. The previous preliminary
-                day-by-day schedule has been removed temporarily because the meeting-room arrangement and related conference
-                schedule details are still under final confirmation.
+    <div class="container page">
+        <div class="hero">
+            <p class="title">Program at a Glance</p>
+            <p class="lead">
+                The preliminary program of IEEE RCAR 2026 is scheduled for <strong>August 15-21, 2026</strong>.
+                The detailed session arrangement will be updated after final confirmation by the organizing committee.
             </p>
-            <div class="warning-box">
-                Please do not refer to any earlier preliminary schedule as the final conference program. The final program,
-                including registration time, workshops, technical sessions, banquet, and local program arrangements, will be
-                announced after confirmation by the organizing committee.
-            </div>
         </div>
 
-        <p class="section-title">Current Program Status</p>
-        <div class="status-card">
+        <p class="section-title">Preliminary Schedule</p>
+        <div class="schedule-card">
             <div class="table-responsive">
-                <table class="status-table">
-                    <tr>
-                        <th>Item</th>
-                        <th>Status</th>
-                    </tr>
-                    <tr>
-                        <td>Detailed conference program</td>
-                        <td><span class="tag-tbc">To be announced</span></td>
-                    </tr>
-                    <tr>
-                        <td>Workshop schedule</td>
-                        <td><span class="tag-tbc">To be confirmed</span></td>
-                    </tr>
-                    <tr>
-                        <td>Registration schedule</td>
-                        <td><span class="tag-tbc">To be confirmed</span></td>
-                    </tr>
-                    <tr>
-                        <td>Technical sessions and presentations</td>
-                        <td><span class="tag-tbc">To be announced</span></td>
-                    </tr>
-                    <tr>
-                        <td>Banquet and local program</td>
-                        <td><span class="tag-tbc">To be confirmed</span></td>
-                    </tr>
+                <table class="schedule-table">
+                    <tr><th>Date</th><th>Morning</th><th>Afternoon</th><th>Evening</th><th>Notes</th></tr>
+                    <tr><td>August 15, 2026</td><td>Workshop</td><td>Workshop</td><td>To be confirmed</td><td><span class="tag">Workshop</span></td></tr>
+                    <tr><td>August 16, 2026</td><td>Workshop</td><td>Workshop</td><td>To be confirmed</td><td><span class="tag">Workshop</span></td></tr>
+                    <tr><td>August 17, 2026</td><td>Arrival / free time</td><td>Registration</td><td>To be confirmed</td><td><span class="tag">Registration</span></td></tr>
+                    <tr><td>August 18, 2026</td><td>Plenary talk + keynote talk</td><td>Technical session</td><td>Conference banquet</td><td><span class="tag">Main conference</span></td></tr>
+                    <tr><td>August 19, 2026</td><td>Plenary talk + keynote talk</td><td>Technical session</td><td>To be confirmed</td><td><span class="tag">Main conference</span></td></tr>
+                    <tr><td>August 20, 2026</td><td>Technical tour</td><td>Technical tour / online session</td><td>Online session</td><td><span class="tag">Technical tour / online session</span></td></tr>
+                    <tr><td>August 21, 2026</td><td>Online session</td><td>Online session / departure</td><td>Departure / free time</td><td><span class="tag">Online session</span></td></tr>
                 </table>
             </div>
-
-            <div class="notice-box">
-                For program-related questions, please contact the IEEE RCAR 2026 Organizing Committee at
-                <a href="mailto:ieeercar@163.com">ieeercar@163.com</a>.
+            <div class="notice">
+                The program above is preliminary and subject to final confirmation. Detailed session times, speakers,
+                technical tour information, and online-session arrangements will be announced later.
             </div>
         </div>
     </div>
 
     <div class="container bottom-spacer">
-        <table>
-            <tr>
-                <td style="width:70%;"><img src="./Images/bottom6.png" class="img-responsive center-block" style="width:100%;" /></td>
-                <td style="width:40%;margin-left:5px;display:inline-block"><img class="img-responsive" src="./Images/rcar2026_logo.jpg" /></td>
-            </tr>
-        </table>
+        <table><tr><td style="width:70%;"><img src="./Images/bottom6.png" class="img-responsive center-block" style="width:100%;" /></td><td style="width:40%;margin-left:5px;display:inline-block"><img class="img-responsive" src="./Images/rcar2026_logo.jpg" /></td></tr></table>
     </div>
 
     <script src="./Scripts/bootstrap.min.js?v=20220702"></script>

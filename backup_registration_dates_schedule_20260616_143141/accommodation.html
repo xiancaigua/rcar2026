@@ -1,50 +1,3 @@
-#!/usr/bin/env bash
-set -e
-
-# RCAR 2026: rewrite accommodation.html into a cleaner vertical hotel layout.
-#
-# Requested changes:
-# 1) Put the 5-star hotel first: Savoy Resort & Spa Seychelles.
-# 2) Put the 4-star hotel second: Coral Strand Smart Choice Hotel.
-# 3) Arrange the two hotels vertically, not side by side.
-# 4) Keep the page concise: one photo per hotel + room type + nightly rate table.
-# 5) Remove long/excessive explanatory notes marked in the screenshot.
-# 6) Add hotel website links:
-#    - Coral Strand official website is included.
-#    - Savoy official website is left as To be confirmed if not verified by the committee.
-#
-# Run in website root, e.g. /var/www/rcar2026.
-
-CONFERENCE_EMAIL="${CONFERENCE_EMAIL:-ieeercar@163.com}"
-
-ts="$(date +%Y%m%d_%H%M%S)"
-backup_dir="backup_accommodation_vertical_hotels_${ts}"
-mkdir -p "$backup_dir"
-cp accommodation.html nav1.html "$backup_dir"/ 2>/dev/null || true
-
-if [ ! -f nav1.html ]; then
-    echo "ERROR: nav1.html not found. Please run this script in the website root directory." >&2
-    exit 1
-fi
-
-mkdir -p Images
-
-# Image fallback:
-# Previous scripts created Images/savoy_room.jpg and Images/coral_strand_room.jpg.
-# If missing, fall back to other available Savoy images so the page will not break.
-if [ ! -f Images/savoy_room.jpg ]; then
-    if [ -f Images/savoy_pool_resort.png ]; then
-        cp Images/savoy_pool_resort.png Images/savoy_room.jpg
-    else
-        echo "WARNING: Images/savoy_room.jpg missing. Please upload a Savoy hotel room image."
-    fi
-fi
-
-if [ ! -f Images/coral_strand_room.jpg ]; then
-    echo "WARNING: Images/coral_strand_room.jpg missing. Please upload a Coral Strand room image."
-fi
-
-cat > accommodation.html <<EOF_HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -278,14 +231,68 @@ cat > accommodation.html <<EOF_HTML
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
-$(cat nav1.html)
+<nav class="navbar navbar-custom navbar-static-top">
+    <div class="container_fluid">
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span></span>
+            </button>
+            <a href="index.html" class="navbar-brand navbar-left align-self-center mx-auto">
+                <p class="align-self-center mx-auto" style="color:rgb(0, 140, 255);margin-left:5px;margin-bottom:10px;font-size:22pt;">IEEE RCAR 2026</p>
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" style="margin-right:2%" id="navbar">
+            <ul class="nav navbar-nav navbar-right" style="font-size:11.5pt;">
+                <li><a href="index.html" style="padding-left:10px;padding-right:10px;">Home</a></li>
+                <li><a href="commitee.html" style="padding-left:10px;padding-right:10px;">Committee</a></li>
+
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" style="padding-left:10px;padding-right:10px;">Program&nbsp;<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a style="font-size:12pt;" href="glance.html">Program at a Glance</a></li>
+                        <li><a style="font-size:12pt;" href="plenary.html">Plenary Speakers</a></li>
+                        <li><a style="font-size:12pt;" href="keynote.html">Keynote Speakers</a></li>
+                        <li><a style="font-size:12pt;" href="workshop.html">Workshop</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="CFP.html" style="padding-left:10px;padding-right:10px;">Call for Papers</a></li>
+
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" style="padding-left:10px;padding-right:10px;">Submission&nbsp;<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a style="font-size:12pt;" href="init_sub.html">Initial Submission</a></li>
+                        <li><a style="font-size:12pt;" href="final_sub.html">Final Submission</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="registration.html" style="padding-left:10px;padding-right:10px;">Registration</a></li>
+
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" style="padding-left:10px;padding-right:10px;">Accommodation&nbsp;<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a style="font-size:12pt;" href="accommodation.html">Accommodation</a></li>
+                        <li><a style="font-size:12pt;" href="transportation.html">Transportation</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="venue.html" style="padding-left:10px;padding-right:10px;">Venue</a></li>
+                <li><a href="history.html" style="padding-left:10px;padding-right:10px;">History</a></li>
+                <li><a href="contact.html" style="padding-left:10px;padding-right:10px;">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
     <div class="container page">
         <div class="hero">
             <p class="title">Accommodation</p>
             <p class="lead">
-                Recommended hotel options and room rates for IEEE RCAR 2026 participants.
+                The following hotel information is provided for IEEE RCAR 2026 participants during the conference period
+                <strong>August 16-22, 2026</strong>.
             </p>
+
         </div>
 
         <p class="section-title">Recommended Hotels and Room Rates</p>
@@ -299,7 +306,7 @@ $(cat nav1.html)
                 </div>
                 <p class="hotel-meta">
                     Meal plan: Breakfast included (BB). Group booking only.
-                    Website: <span class="muted">To be confirmed by the organizing committee</span>
+                    Website: <a href="https://savoy.sc/about/" target="_blank" rel="noopener noreferrer">Official website</a>
                 </p>
                 <div class="table-responsive">
                     <table class="rate-table">
@@ -363,6 +370,7 @@ $(cat nav1.html)
         <ul class="note-list">
             <li>The hotel environmental levy is not included. Current reference: SCR 100 per person per night for large hotels; children under 12 are exempt.</li>
             <li>Hotel booking method, booking deadline, reservation contact, payment method, and cancellation policy will be announced after final confirmation.</li>
+            <li>Rates are listed per room per night. The double-occupancy rate is based on two adults sharing one room; the single-occupancy rate is based on one adult occupying one room. Breakfast is included unless otherwise stated.</li>
         </ul>
 
         <div class="warning">
@@ -374,7 +382,7 @@ $(cat nav1.html)
 
         <div class="notice">
             For accommodation-related questions, please contact the IEEE RCAR 2026 Organizing Committee at
-            <a href="mailto:${CONFERENCE_EMAIL}">${CONFERENCE_EMAIL}</a>.
+            <a href="mailto:ieeercar@163.com">ieeercar@163.com</a>.
         </div>
     </div>
 
@@ -391,24 +399,3 @@ $(cat nav1.html)
     <script src="./Scripts/script.js?v=20220702"></script>
 </body>
 </html>
-EOF_HTML
-
-echo "==== Checks ===="
-echo "---- vertical order ----"
-grep -n "Savoy Resort\|Coral Strand" accommodation.html
-
-echo ""
-echo "---- links and notes ----"
-grep -n "coralstrand.com\|To be confirmed by the organizing committee\|Seychelles Travel Authorisation\|SCR 100" accommodation.html || true
-
-echo ""
-echo "---- removed crossed-out long texts ----"
-if grep -n "preliminary group-booking reference rates for the period\|Accommodation, airport transfer\|optional local tours\|Rates are listed per room per night" accommodation.html; then
-    echo "WARNING: some removed long text still exists."
-    exit 1
-else
-    echo "OK: crossed-out long text removed."
-fi
-
-echo ""
-echo "Done. Backup directory: $backup_dir"
