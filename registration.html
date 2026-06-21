@@ -42,6 +42,30 @@
         .note-list li { margin-top: 8px; }
         .bottom-spacer { margin-top: 100px; text-align: center; }
         @media(max-width:768px) { .title { font-size: 26pt; } .lead { font-size: 14pt; } .section-title { font-size: 19pt; } .registration-table { font-size: 12.2pt; } }
+        .registration-link-buttons {
+            display:flex;
+            flex-wrap:wrap;
+            gap:14px;
+            margin-top:12px;
+        }
+        .registration-link-buttons .registration-button {
+            margin-top:0;
+        }
+        .registration-button.secondary-button {
+            background:#1aa39a;
+            box-shadow:0 8px 18px rgba(26,163,154,.22);
+        }
+        @media(max-width:768px) {
+            .registration-link-buttons {
+                display:block;
+            }
+            .registration-link-buttons .registration-button {
+                display:block;
+                width:100%;
+                text-align:center;
+                margin-top:10px;
+            }
+        }
     </style>
 
     <script src="./Scripts/jquery-1.11.3.js?v=20220702"></script>
@@ -117,13 +141,22 @@
             </div>
         </div>
 
-        <p class="section-title">Registration Link</p>
+                <p class="section-title">Registration Links</p>
         <div class="registration-card">
-            <p style="font-size:14.5pt; line-height:1.7; margin-bottom:8px;">The online registration link will be announced after final confirmation by the organizing committee.</p>
-            <span class="registration-button disabled-button">Registration Link To Be Announced</span>
+            <p style="font-size:14.5pt; line-height:1.7; margin-bottom:8px;">
+                Please select the appropriate registration form according to your payment method.
+            </p>
+            <div class="registration-link-buttons">
+                <a class="registration-button" href="https://wj.qq.com/s2/27053733/e74d/" target="_blank" rel="noopener noreferrer">
+                    Mainland China Registration (RMB Payment)
+                </a>
+                <a class="registration-button secondary-button" href="https://wj.qq.com/s2/27060197/0u9q/" target="_blank" rel="noopener noreferrer">
+                    International Registration (USD Payment)
+                </a>
+            </div>
         </div>
 
-                        <p class="section-title">Conference Notice</p>
+<p class="section-title">Conference Notice</p>
         <div class="registration-card">
             <p style="font-size:14.5pt; line-height:1.7; margin-bottom:8px;">
                 The official conference notice for IEEE RCAR 2026 is available for download.

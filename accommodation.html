@@ -223,6 +223,57 @@
             .hotel-title { font-size: 19pt; }
             .rate-table { font-size: 12.2pt; }
         }
+        .reservation-card {
+            background:#ffffff;
+            border:1px solid #d9e5e8;
+            border-radius:16px;
+            padding:22px 24px;
+            margin-bottom:22px;
+            box-shadow:0 10px 24px rgba(30,70,90,.08);
+            text-align:left;
+        }
+
+        .season-reminder {
+            border-left:6px solid #d99a22;
+            background:#fff9ed;
+            border-radius:14px;
+            padding:15px 20px;
+            margin:16px 0;
+            font-size:14.5pt;
+            line-height:1.7;
+            color:#2f3e46;
+            text-align:left;
+        }
+        .cancellation-reminder {
+            border-left:6px solid #c0392b;
+            background:#fff5f3;
+            border-radius:14px;
+            padding:15px 20px;
+            margin:16px 0;
+            font-size:14.5pt;
+            line-height:1.7;
+            color:#2f3e46;
+            text-align:left;
+        }
+        .reservation-button {
+            display:inline-block;
+            margin:12px 0 10px 0;
+            padding:11px 24px;
+            border-radius:24px;
+            background:#1677b3;
+            color:#ffffff !important;
+            font-size:14.5pt;
+            font-weight:bold;
+            text-decoration:none;
+            box-shadow:0 8px 18px rgba(22,119,179,.22);
+        }
+
+        .reservation-button:hover,
+        .reservation-button:focus {
+            color:#ffffff !important;
+            text-decoration:none;
+            background:#115f91;
+        }
     </style>
 
     <script src="./Scripts/jquery-1.11.3.js?v=20220702"></script>
@@ -327,7 +378,7 @@
                         </tr>
                     </table>
                 </div>
-                <p class="mini-note">Dinner reference: USD 70 per person per meal.</p>
+                <p class="mini-note"><strong>Dinner reference:</strong> USD 70 per person per meal = RMB 476 per person per meal.</p>
             </div>
         </div>
 
@@ -362,14 +413,45 @@
                         </tr>
                     </table>
                 </div>
-                <p class="mini-note">Dinner reference: USD 50 per person per meal.</p>
+                <p class="mini-note"><strong>Dinner reference:</strong> USD 50 per person per meal = RMB 340 per person per meal.</p>
             </div>
         </div>
 
-        <p class="section-title">Important Notes</p>
+                <p class="section-title">Hotel Reservation</p>
+        <div class="reservation-card">
+            <div class="season-reminder">
+                <strong>Notice:</strong> August is a peak tourism season in Seychelles. Participants are strongly encouraged to reserve hotel accommodation as early as possible.<br>
+                Hotel reservations through this arrangement are available until <strong>July 20, 2026</strong>. The reservation will be confirmed only after the payment is completed.
+            </div>
+            <div class="cancellation-reminder">
+                <strong>Cancellation Policy:</strong>
+                Hotel reservations made through this arrangement are non-cancellable. In case of special circumstances, please contact the IEEE RCAR 2026 Organizing Committee at
+                <a href="mailto:ieeercar@163.com">ieeercar@163.com</a>, or contact the travel agency sales manager,
+                <strong>Mr. Zhang</strong>, at <strong>+86 188 1730 6697</strong>.
+                Please indicate that you are with the <strong>IEEE RCAR team</strong> when contacting the travel agency.
+            </div>
+            <p class="mini-note">
+                Please complete hotel reservation through the following form:
+            </p>
+            <a class="reservation-button" href="https://v.wjx.cn/vm/hexNk7L.aspx#" target="_blank" rel="noopener noreferrer">Hotel Reservation Form</a>
+
+
+            <p class="mini-note">
+                <!-- The hotel reservation form link will be updated on this page once available. -->
+            </p>
+                    <div class="warning">
+                <strong>Dinner Arrangement:</strong>
+                Savoy Seychelles Resort &amp; Spa dinner: <strong>USD 70 per person per meal = RMB 476 per person per meal</strong>.
+                Coral Strand Smart Choice Hotel dinner: <strong>USD 50 per person per meal = RMB 340 per person per meal</strong>.
+                For double-occupancy reservations, both guests sharing the same room must either include dinner together or exclude dinner together.
+                The hotels do not accept the arrangement where one guest includes dinner and the other guest does not include dinner in the same double-occupancy room.
+            </div>
+</div>
+
+<p class="section-title">Important Notes</p>
         <ul class="note-list">
             <li>The hotel environmental levy is not included. Current reference: SCR 100 per person per night for large hotels; children under 12 are exempt.</li>
-            <li>Hotel booking method, booking deadline, reservation contact, payment method, and cancellation policy will be announced after final confirmation.</li>
+            <!-- <li>The hotel reservation form link and detailed reservation instructions will be updated on this page.</li> -->
             <li>Rates are listed per room per night. The double-occupancy rate is based on two adults sharing one room; the single-occupancy rate is based on one adult occupying one room. Breakfast is included unless otherwise stated.</li>
         </ul>
 
