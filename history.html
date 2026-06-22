@@ -1,44 +1,351 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>IEEE RCAR 2026</title>
-    <!-- <meta name="description" content="Simple scaffold for your IT conference" /> -->
+    <title>History - IEEE RCAR 2026</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:image" content="" />
-    <meta property="og:title" content="IEEE RCAR 2021">
-    <meta property="og:description" content="Conference description">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="">
-    <meta http-equiv="Expires" content="0">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Cache-control" content="no-cache">
-    <meta http-equiv="Cache" content="no-cache">
+
     <link href="./CSS/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="./CSS/style.css" />
     <link rel="stylesheet" href="./CSS/animate.css" />
     <link rel="stylesheet" href="./CSS/hover.css"/>
-    <link rel="icon" href="" /> 
-    <link rel="shortcut icon" href="" />
     <link href="./CSS/bootstrap-theme.min.css" rel="stylesheet" />
-    
     <link href='https://fonts.googleapis.com/css?family=Armata&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> -->
-    <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="./CSS/swiper.min.css"/>
-<script src="https://cdn.staticfile.org/popper.js?v=20220702/1.15.0/umd/popper.min.js?v=20220702"></script>
-<style>
-/* Make the image fully responsive */
-.carousel-inner img {
-    width: 100%;
-    /* height: 100%; */
-}
-</style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+    <style>
+        body {
+            background: #f7fbfc;
+        }
+
+        .history-page {
+            color: #2f3e46;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+        }
+
+        .history-title {
+            margin: 32px 0 12px;
+            text-align: center;
+            font-size: 32pt;
+            font-weight: bold;
+            color: #27445c;
+        }
+
+        .history-intro {
+            max-width: 920px;
+            margin: 0 auto 28px;
+            text-align: center;
+            font-size: 15pt;
+            line-height: 1.7;
+            color: #43535b;
+        }
+
+        .section-title {
+            margin: 30px 0 16px;
+            padding-left: 12px;
+            border-left: 5px solid #1aa39a;
+            color: #27445c;
+            font-size: 22pt;
+            font-weight: bold;
+        }
+
+        .map-card {
+            padding: 16px;
+            background: #fff;
+            border: 1px solid #d9e5e8;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(30,70,90,.08);
+        }
+
+        #history-map {
+            height: 500px;
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid #d5e3e8;
+            overflow: hidden;
+        }
+
+        .map-note {
+            margin: 12px 2px 0;
+            font-size: 12.5pt;
+            color: #66757d;
+        }
+
+        .leaflet-popup-content {
+            margin: 14px 16px;
+            min-width: 220px;
+        }
+
+        .popup-box {
+            text-align: left;
+        }
+
+        .popup-sticker {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fef3c7, #dbeafe);
+            font-size: 26px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,.10);
+        }
+
+        .popup-box h4 {
+            margin: 0 0 8px;
+            font-size: 15pt;
+            font-weight: bold;
+            color: #27445c;
+        }
+
+        .popup-box p {
+            margin: 4px 0;
+            font-size: 12.5pt;
+            line-height: 1.45;
+            color: #38464d;
+        }
+
+        .popup-links {
+            margin-top: 10px;
+        }
+
+        .popup-links a {
+            color: #1677b3;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .popup-links a + a {
+            margin-left: 10px;
+        }
+
+        .sticker-marker-wrapper {
+            background: transparent;
+            border: none;
+        }
+
+        .sticker-marker {
+            position: relative;
+            width: 60px;
+            height: 74px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .sticker-marker.large {
+            width: 74px;
+            height: 88px;
+        }
+
+        .sticker-bubble {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffffff, #eef8ff);
+            border: 3px solid #1677b3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            box-shadow: 0 6px 14px rgba(20,70,100,.22);
+        }
+
+        .sticker-marker.large .sticker-bubble {
+            width: 64px;
+            height: 64px;
+            font-size: 32px;
+            border-width: 4px;
+        }
+
+        .sticker-year {
+            margin-top: 6px;
+            min-width: 50px;
+            padding: 3px 8px;
+            border-radius: 14px;
+            background: #1677b3;
+            color: #fff;
+            border: 2px solid #fff;
+            box-shadow: 0 4px 10px rgba(20,70,100,.20);
+            font-size: 10.5pt;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .sticker-marker.large .sticker-year {
+            min-width: 58px;
+            font-size: 11pt;
+        }
+
+        .history-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px 24px;
+            margin-bottom: 40px;
+        }
+
+        .history-card {
+            background: #fff;
+            border: 1px solid #d9e5e8;
+            border-radius: 16px;
+            padding: 20px 22px;
+            box-shadow: 0 8px 24px rgba(30,70,90,.08);
+        }
+
+        .history-card-head {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .history-year {
+            padding: 6px 11px;
+            border-radius: 16px;
+            background: #eef8ff;
+            color: #1677b3;
+            border: 1px solid #d2e9f6;
+            font-size: 13pt;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .history-card h3 {
+            margin: 0;
+            color: #27445c;
+            font-size: 18pt;
+            font-weight: bold;
+            line-height: 1.3;
+        }
+
+        .history-card p {
+            margin: 6px 0;
+            font-size: 14.2pt;
+            line-height: 1.55;
+        }
+
+        .history-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .history-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 22px;
+            background: #1677b3;
+            color: #fff !important;
+            font-size: 12.6pt;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .history-btn.secondary {
+            background: #1aa39a;
+        }
+
+        .history-btn:hover {
+            opacity: .92;
+            text-decoration: none;
+        }
+
+        .bottom-spacer {
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        @media(max-width: 992px) {
+            .history-grid {
+                grid-template-columns: 1fr;
+            }
+            #history-map {
+                height: 430px;
+            }
+        }
+
+        @media(max-width: 768px) {
+            .history-title {
+                font-size: 26pt;
+            }
+            .history-intro {
+                text-align: left;
+                font-size: 14pt;
+            }
+            .section-title {
+                font-size: 19pt;
+            }
+            .history-actions {
+                display: block;
+            }
+            .history-btn {
+                display: block;
+                text-align: center;
+                margin-top: 10px;
+            }
+            .sticker-marker {
+                width: 54px;
+                height: 68px;
+            }
+            .sticker-bubble {
+                width: 48px;
+                height: 48px;
+                font-size: 24px;
+            }
+            .sticker-marker.large {
+                width: 64px;
+                height: 78px;
+            }
+            .sticker-marker.large .sticker-bubble {
+                width: 58px;
+                height: 58px;
+                font-size: 28px;
+            }
+        }
+    
+        .popup-sticker.current {
+            background: linear-gradient(135deg, #ffe29a, #ff9f68);
+            box-shadow: 0 4px 12px rgba(255,140,80,.25);
+        }
+
+        .sticker-marker.current {
+            width: 78px;
+            height: 92px;
+        }
+
+        .sticker-marker.current .sticker-bubble {
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffe29a, #ff9f68);
+            border: 4px solid #d94f2b;
+            color: #5a2b00;
+            font-size: 32px;
+            box-shadow: 0 8px 18px rgba(217,79,43,.28);
+        }
+
+        .sticker-marker.current .sticker-year {
+            min-width: 62px;
+            background: #d94f2b;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            font-size: 11pt;
+            box-shadow: 0 4px 10px rgba(217,79,43,.24);
+        }
+
+    </style>
+
     <script src="./Scripts/jquery-1.11.3.js?v=20220702"></script>
     <script src="./Scripts/jquery.countdown.js?v=20220702"></script>
     <script src="./Scripts/viewportchecker.min.js?v=20220702"></script>
-    
 </head>
+
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 <nav class="navbar navbar-custom navbar-static-top">
     <div class="container_fluid">
@@ -94,361 +401,423 @@
     </div>
 </nav>
 
-    <div class="container  text-justify" style="margin-top: 20px;">
-        <div>
-            <p class="text-left" style="font-size: 18pt;font-weight: bold;">
-                The 2015 International Conference on Real-time Computing and Robotics (RCAR 2015)
-            </p>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 20px;margin-right: 5px;" >
-                Location:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                Changsha,China
-            </span>
-        </br>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 10px;margin-right: 5px;" >
-                Time:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                June 23-26, 2015
-            </span>
-        </br>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 10px;margin-right: 5px;" >
-                Website:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;text-decoration:line-through">
-                http://www.rcar2015.org
-            </span>
-        </br>
-        </div>
-  
+<div class="container history-page">
+    <p class="history-title">History</p>
+    <p class="history-intro">
+        Founded in 2015, the IEEE International Conference on Real-time Computing and Robotics has been held in multiple countries and regions around the world.
+    </p>
+
+    <p class="section-title">RCAR Around the World</p>
+    <div class="map-card">
+        <div id="history-map"></div>
+        <p class="map-note">
+            The locations of past conferences are highlighted on the map. Click any icon to zoom in and view details.
+        </p>
     </div>
 
-    <div class="container  text-justify" style="margin-top: 20px;">
-        <div>
-            <p class="text-left" style="font-size: 18pt;font-weight: bold;">
-                The 2016 International Conference on Real-time Computing and Robotics (RCAR 2016)
-            </p>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 20px;margin-right: 5px;" >
-                Location:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                Angkor Wat, Cambodia
-            </span>
-        </br>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 10px;margin-right: 5px;" >
-                Time:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                June 6-9, 2016
-            </span>
-        </br>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 10px;margin-right: 5px;" >
-                Website:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                http://robotics.sjtu.edu.cn/RCAR/
-            </span>
-        </br>
-        </div>
-  
-    </div>
-
-    <div class="container  text-justify" style="margin-top: 20px;">
-        <div>
-            <p class="text-left" style="font-size: 18pt;font-weight: bold;">
-                The 2017 International Conference on Real-time Computing and Robotics (RCAR 2017)
-            </p>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 20px;margin-right: 5px;" >
-                Location:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                Okinawa, Japan
-            </span>
-        </br>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 10px;margin-right: 5px;" >
-                Time:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                July 14-18, 2017
-            </span>
-        </br>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 10px;margin-right: 5px;" >
-                Website:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                http://robotics.sjtu.edu.cn/RCAR2017/
-            </span>
-        </br>
-        </div>
-  
-    </div>
-
-    <div class="container  text-justify" style="margin-top: 20px;">
-        <div>
-            <p class="text-left" style="font-size: 18pt;font-weight: bold;">
-                The 2018 International Conference on Real-time Computing and Robotics (RCAR 2018)
-            </p>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 20px;margin-right: 5px;" >
-                Location:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                Kandima, Maldives
-            </span>
-        </br>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 10px;margin-right: 5px;" >
-                Time:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                August 1-5, 2018
-            </span>
-        </br>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 10px;margin-right: 5px;" >
-                Website:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                Website:http://robotics.sjtu.edu.cn/RCAR2018/
-            </span>
-        </br>
-        </div>
-  
-    </div>
-
-    <div class="container  text-justify" style="margin-top: 20px;">
-        <div>
-            <p class="text-left" style="font-size: 18pt;font-weight: bold;">
-                The 2019 International Conference on Real-time Computing and Robotics (RCAR 2019)
-            </p>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 20px;margin-right: 5px;" >
-                Location:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                Irkutsk, Russia
-            </span>
-        </br>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 10px;margin-right: 5px;" >
-                Time:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                August 4-9, 2019
-            </span>
-        </br>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 10px;margin-right: 5px;" >
-                Website:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                http://rcar2019.bigsmilelab.ac.cn/
-            </span>
-        </br>
-        </div>
-  
-    </div>
-    <div class="container  text-justify" style="margin-top: 20px;">
-        <div>
-            <p class="text-left" style="font-size: 18pt;font-weight: bold;">
-                The 2020 International Conference on Real-time Computing and Robotics (RCAR 2020)
-            </p>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 20px;margin-right: 5px;" >
-                Location:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                Asahikawa, Japan
-            </span>
-        </br>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 10px;margin-right: 5px;" >
-                Time:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                September 28-29, 2020
-            </span>
-        </br>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 10px;margin-right: 5px;" >
-                Website:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                http://irmv.sjtu.edu.cn/rcar2020/
-            </span>
-        </br>
-        </div>
-  
-    </div>
-
-    <div class="container  text-justify" style="margin-top: 20px;">
-        <div>
-            <p class="text-left" style="font-size: 18pt;font-weight: bold;">
-                The 2021 International Conference on Real-time Computing and Robotics (RCAR 2021)
-            </p>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 20px;margin-right: 5px;" >
-                Location:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                Xining, China
-            </span>
-        </br>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 10px;margin-right: 5px;" >
-                Time:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                July. 15-19, 2021
-            </span>
-        </br>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 10px;margin-right: 5px;" >
-                Website:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                http://irmv.sjtu.edu.cn/rcar2021/
-            </span>
-        </br>
-        </div>
-  
-    </div>
-
-    <div class="container  text-justify" style="margin-top: 20px;">
-        <div>
-            <p class="text-left" style="font-size: 18pt;font-weight: bold;">
-                The 2022 International Conference on Real-time Computing and Robotics (RCAR 2022)
-            </p>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 20px;margin-right: 5px;" >
-                Location:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                Guiyang, China
-            </span>
-        </br>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 10px;margin-right: 5px;" >
-                Time:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                July 17-22, 2022
-            </span>
-        </br>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 10px;margin-right: 5px;" >
-                Website:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                https://www.softconf.com/m/rcar2022/
-            </span>
-        </br>
-        </div>
-
-    </div>
-
-    <div class="container  text-justify" style="margin-top: 20px;">
-        <div>
-            <p class="text-left" style="font-size: 18pt;font-weight: bold;">
-                The 2023 International Conference on Real-time Computing and Robotics (RCAR 2023)
-            </p>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 20px;margin-right: 5px;" >
-                Location:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                Datong, China
-            </span>
-        </br>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 10px;margin-right: 5px;" >
-                Time:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                July 17-22, 2023
-            </span>
-        </br>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 10px;margin-right: 5px;" >
-                Website:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                https://softconf.com/n/rcar2023/
-            </span>
-        </br>
-        </div>
-
-    </div>
-
-    <div class="container  text-justify" style="margin-top: 20px;">
-        <div>
-            <p class="text-left" style="font-size: 18pt;font-weight: bold;">
-                The 2024 International Conference on Real-time Computing and Robotics (RCAR 2024)
-            </p>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 20px;margin-right: 5px;" >
-                Location:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                Ålesund, Norway
-            </span>
-        </br>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 10px;margin-right: 5px;" >
-                Time:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                June 24-28, 2024
-            </span>
-        </br>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 10px;margin-right: 5px;" >
-                Website:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                https://softconf.com/n/rcar2024/
-            </span>
-        </br>
-        </div>
-
-    </div>
-
-    <div class="container  text-justify" style="margin-top: 20px;">
-        <div>
-            <p class="text-left" style="font-size: 18pt;font-weight: bold;">
-                The 2025 International Conference on Real-time Computing and Robotics (RCAR 2025)
-            </p>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 20px;margin-right: 5px;" >
-                Location:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                Toyama, Japan
-            </span>
-        </br>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 10px;margin-right: 5px;" >
-                Time:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                June 1-6, 2025
-            </span>
-        </br>
-            <span class="text-justify" style="font-size: 15pt;font-weight: bold;margin-top: 10px;margin-right: 5px;" >
-                Website:
-            </span>
-            <span class="text-justify" style="font-size: 15pt;text-align: justify;">
-                https://smartconf.jp/content/rcar2025/
-            </span>
-        </br>
-        </div>
-
-    </div>
-
-
-    </div>
-    <div class="container " style="margin-top: 100px;text-align:center">
-        <table>
-            <tr>
-                <td style="width: 70%;"> <img src="./Images/bottom6.png" class="img-responsive center-block" style="width: 100%;" ></img> </td>
-                <td style="width: 40%;margin-left: 5px;display:inline-block"> <img class="img-responsive"  src="./Images/rcar2026_logo.jpg" ></img></a></td> 
-                <!-- <td>
-                    <div style="font-size: 15pt;display:inline-block;text-align: center;vertical-align: middle;margin-left: -5px;"> 
-                    <span class="text-justify">
-                    Media
-                    </span>   
-                </br> 
-                    <span class="text-justify">
-                        Partner
-                    </span>    
+    <p class="section-title">Past Conferences</p>
+    <div class="history-grid">
+                <div class="history-card">
+                    <div class="history-card-head">
+                        <span class="history-year">2025</span>
+                        <h3>IEEE RCAR 2025</h3>
                     </div>
-                    
-                <a href="https://www.mdpi.com/journal/sensors"><img class="img-responsive" style="width: 60%;margin-left: 5px;display:inline-block" src="./Images/sensors.png" ></img></a></td>                   -->
-            </tr>
-        </table>
-      
+                    <p><strong>Location:</strong> Toyama, Japan</p>
+                    <p><strong>Time:</strong> June 1-6, 2025</p>
+                    <div class="history-actions">
+                        <a class="history-btn " href="https://smartconf.jp/content/rcar2025/" target="_blank" rel="noopener noreferrer">Conference Website</a>
+                        <a class="history-btn secondary" href="https://doi.org/10.1109/RCAR65431.2025" target="_blank" rel="noopener noreferrer">Proceedings</a>
+                    </div>
+                </div>
+                <div class="history-card">
+                    <div class="history-card-head">
+                        <span class="history-year">2024</span>
+                        <h3>IEEE RCAR 2024</h3>
+                    </div>
+                    <p><strong>Location:</strong> Ålesund, Norway</p>
+                    <p><strong>Time:</strong> June 24-28, 2024</p>
+                    <div class="history-actions">
+                        <a class="history-btn " href="https://irmv.sjtu.edu.cn/rcar2024/#/" target="_blank" rel="noopener noreferrer">Conference Website</a>
+                        <a class="history-btn secondary" href="https://doi.org/10.1109/RCAR61438.2024" target="_blank" rel="noopener noreferrer">Proceedings</a>
+                    </div>
+                </div>
+                <div class="history-card">
+                    <div class="history-card-head">
+                        <span class="history-year">2023</span>
+                        <h3>IEEE RCAR 2023</h3>
+                    </div>
+                    <p><strong>Location:</strong> Datong, China</p>
+                    <p><strong>Time:</strong> July 17-20, 2023</p>
+                    <div class="history-actions">
+                        <a class="history-btn " href="https://softconf.com/n/rcar2023/" target="_blank" rel="noopener noreferrer">Conference Website</a>
+                        <a class="history-btn secondary" href="https://doi.org/10.1109/RCAR58764.2023" target="_blank" rel="noopener noreferrer">Proceedings</a>
+                    </div>
+                </div>
+                <div class="history-card">
+                    <div class="history-card-head">
+                        <span class="history-year">2022</span>
+                        <h3>IEEE RCAR 2022</h3>
+                    </div>
+                    <p><strong>Location:</strong> Guiyang, China</p>
+                    <p><strong>Time:</strong> July 17-22, 2022</p>
+                    <div class="history-actions">
+                        <a class="history-btn " href="https://irmv.sjtu.edu.cn/rcar2022/#/" target="_blank" rel="noopener noreferrer">Conference Website</a>
+                        <a class="history-btn secondary" href="https://doi.org/10.1109/RCAR54675.2022" target="_blank" rel="noopener noreferrer">Proceedings</a>
+                    </div>
+                </div>
+                <div class="history-card">
+                    <div class="history-card-head">
+                        <span class="history-year">2021</span>
+                        <h3>IEEE RCAR 2021</h3>
+                    </div>
+                    <p><strong>Location:</strong> Xining, China</p>
+                    <p><strong>Time:</strong> July 15-19, 2021</p>
+                    <div class="history-actions">
+                        <a class="history-btn " href="http://irmv.sjtu.edu.cn/rcar2021/" target="_blank" rel="noopener noreferrer">Conference Website</a>
+                        <a class="history-btn secondary" href="https://doi.org/10.1109/RCAR52367.2021" target="_blank" rel="noopener noreferrer">Proceedings</a>
+                    </div>
+                </div>
+                <div class="history-card">
+                    <div class="history-card-head">
+                        <span class="history-year">2020</span>
+                        <h3>IEEE RCAR 2020</h3>
+                    </div>
+                    <p><strong>Location:</strong> Asahikawa, Japan</p>
+                    <p><strong>Time:</strong> September 28-29, 2020</p>
+                    <div class="history-actions">
+                        <a class="history-btn " href="http://irmv.sjtu.edu.cn/rcar2020/" target="_blank" rel="noopener noreferrer">Conference Website</a>
+                        <a class="history-btn secondary" href="https://doi.org/10.1109/RCAR49640.2020" target="_blank" rel="noopener noreferrer">Proceedings</a>
+                    </div>
+                </div>
+                <div class="history-card">
+                    <div class="history-card-head">
+                        <span class="history-year">2019</span>
+                        <h3>IEEE RCAR 2019</h3>
+                    </div>
+                    <p><strong>Location:</strong> Irkutsk, Russia</p>
+                    <p><strong>Time:</strong> August 4-9, 2019</p>
+                    <div class="history-actions">
+                        <a class="history-btn " href="http://rcar2019.bigsmilelab.ac.cn/" target="_blank" rel="noopener noreferrer">Conference Website</a>
+                        <a class="history-btn secondary" href="https://ieeexplore.ieee.org/xpl/conhome/9034064/proceeding" target="_blank" rel="noopener noreferrer">Proceedings</a>
+                    </div>
+                </div>
+                <div class="history-card">
+                    <div class="history-card-head">
+                        <span class="history-year">2018</span>
+                        <h3>IEEE RCAR 2018</h3>
+                    </div>
+                    <p><strong>Location:</strong> Kandima, Maldives</p>
+                    <p><strong>Time:</strong> August 1-5, 2018</p>
+                    <div class="history-actions">
+                        <a class="history-btn " href="http://robotics.sjtu.edu.cn/RCAR2018/" target="_blank" rel="noopener noreferrer">Conference Website</a>
+                        <a class="history-btn secondary" href="https://ieeexplore.ieee.org/xpl/conhome/8605389/proceeding" target="_blank" rel="noopener noreferrer">Proceedings</a>
+                    </div>
+                </div>
+                <div class="history-card">
+                    <div class="history-card-head">
+                        <span class="history-year">2017</span>
+                        <h3>IEEE RCAR 2017</h3>
+                    </div>
+                    <p><strong>Location:</strong> Okinawa, Japan</p>
+                    <p><strong>Time:</strong> July 14-18, 2017</p>
+                    <div class="history-actions">
+                        <a class="history-btn " href="http://robotics.sjtu.edu.cn/RCAR2017/" target="_blank" rel="noopener noreferrer">Conference Website</a>
+                        <a class="history-btn secondary" href="https://ieeexplore.ieee.org/xpl/conhome/8304917/proceeding" target="_blank" rel="noopener noreferrer">Proceedings</a>
+                    </div>
+                </div>
+                <div class="history-card">
+                    <div class="history-card-head">
+                        <span class="history-year">2016</span>
+                        <h3>IEEE RCAR 2016</h3>
+                    </div>
+                    <p><strong>Location:</strong> Angkor Wat, Cambodia</p>
+                    <p><strong>Time:</strong> June 6-10, 2016</p>
+                    <div class="history-actions">
+                        <a class="history-btn " href="http://robotics.sjtu.edu.cn/RCAR/" target="_blank" rel="noopener noreferrer">Conference Website</a>
+                        <a class="history-btn secondary" href="https://ieeexplore.ieee.org/xpl/conhome/7777623/proceeding" target="_blank" rel="noopener noreferrer">Proceedings</a>
+                    </div>
+                </div>
+                <div class="history-card">
+                    <div class="history-card-head">
+                        <span class="history-year">2015</span>
+                        <h3>RCAR 2015</h3>
+                    </div>
+                    <p><strong>Location:</strong> Changsha, China</p>
+                    <p><strong>Time:</strong> June 23-26, 2015</p>
+                    <div class="history-actions">
+                        <a class="history-btn " href="http://www.rcar2015.org" target="_blank" rel="noopener noreferrer">Conference Website</a>
+                    </div>
+                </div>
     </div>
+</div>
 
+<div class="container bottom-spacer">
+    <table>
+        <tr>
+            <td style="width:70%;"><img src="./Images/bottom6.png" class="img-responsive center-block" style="width:100%;" /></td>
+            <td style="width:40%;margin-left:5px;display:inline-block"><img class="img-responsive" src="./Images/rcar2026_logo.jpg" /></td>
+        </tr>
+    </table>
+</div>
 
 <script src="./Scripts/bootstrap.min.js?v=20220702"></script>
 <script src="./Scripts/script.js?v=20220702"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+var historyEvents = [
+    {
+        "year": 2015,
+        "display": "RCAR 2015",
+        "city": "Changsha, China",
+        "time": "June 23-26, 2015",
+        "website": "http://www.rcar2015.org",
+        "proceedings": "",
+        "lat": 28.2282,
+        "lng": 112.9388,
+        "emoji": "🐉",
+        "tagline": "Changsha",
+        "marker_class": "standard",
+        "focus_zoom": 5
+    },
+    {
+        "year": 2016,
+        "display": "IEEE RCAR 2016",
+        "city": "Angkor Wat, Cambodia",
+        "time": "June 6-10, 2016",
+        "website": "http://robotics.sjtu.edu.cn/RCAR/",
+        "proceedings": "https://ieeexplore.ieee.org/xpl/conhome/7777623/proceeding",
+        "lat": 13.4125,
+        "lng": 103.867,
+        "emoji": "🛕",
+        "tagline": "Angkor Wat",
+        "marker_class": "large",
+        "focus_zoom": 6
+    },
+    {
+        "year": 2017,
+        "display": "IEEE RCAR 2017",
+        "city": "Okinawa, Japan",
+        "time": "July 14-18, 2017",
+        "website": "http://robotics.sjtu.edu.cn/RCAR2017/",
+        "proceedings": "https://ieeexplore.ieee.org/xpl/conhome/8304917/proceeding",
+        "lat": 26.2124,
+        "lng": 127.6792,
+        "emoji": "🌊",
+        "tagline": "Okinawa",
+        "marker_class": "standard",
+        "focus_zoom": 6
+    },
+    {
+        "year": 2018,
+        "display": "IEEE RCAR 2018",
+        "city": "Kandima, Maldives",
+        "time": "August 1-5, 2018",
+        "website": "http://robotics.sjtu.edu.cn/RCAR2018/",
+        "proceedings": "https://ieeexplore.ieee.org/xpl/conhome/8605389/proceeding",
+        "lat": 2.739,
+        "lng": 72.895,
+        "emoji": "🏝️",
+        "tagline": "Maldives",
+        "marker_class": "large",
+        "focus_zoom": 6
+    },
+    {
+        "year": 2019,
+        "display": "IEEE RCAR 2019",
+        "city": "Irkutsk, Russia",
+        "time": "August 4-9, 2019",
+        "website": "http://rcar2019.bigsmilelab.ac.cn/",
+        "proceedings": "https://ieeexplore.ieee.org/xpl/conhome/9034064/proceeding",
+        "lat": 52.2869,
+        "lng": 104.305,
+        "emoji": "⛪",
+        "tagline": "Irkutsk",
+        "marker_class": "standard",
+        "focus_zoom": 5
+    },
+    {
+        "year": 2020,
+        "display": "IEEE RCAR 2020",
+        "city": "Asahikawa, Japan",
+        "time": "September 28-29, 2020",
+        "website": "http://irmv.sjtu.edu.cn/rcar2020/",
+        "proceedings": "https://doi.org/10.1109/RCAR49640.2020",
+        "lat": 43.7706,
+        "lng": 142.365,
+        "emoji": "❄️",
+        "tagline": "Asahikawa",
+        "marker_class": "standard",
+        "focus_zoom": 5
+    },
+    {
+        "year": 2021,
+        "display": "IEEE RCAR 2021",
+        "city": "Xining, China",
+        "time": "July 15-19, 2021",
+        "website": "http://irmv.sjtu.edu.cn/rcar2021/",
+        "proceedings": "https://doi.org/10.1109/RCAR52367.2021",
+        "lat": 36.6171,
+        "lng": 101.7782,
+        "emoji": "🏔️",
+        "tagline": "Xining",
+        "marker_class": "standard",
+        "focus_zoom": 5
+    },
+    {
+        "year": 2022,
+        "display": "IEEE RCAR 2022",
+        "city": "Guiyang, China",
+        "time": "July 17-22, 2022",
+        "website": "https://irmv.sjtu.edu.cn/rcar2022/#/",
+        "proceedings": "https://doi.org/10.1109/RCAR54675.2022",
+        "lat": 26.6477,
+        "lng": 106.6302,
+        "emoji": "🌿",
+        "tagline": "Guiyang",
+        "marker_class": "standard",
+        "focus_zoom": 5
+    },
+    {
+        "year": 2023,
+        "display": "IEEE RCAR 2023",
+        "city": "Datong, China",
+        "time": "July 17-20, 2023",
+        "website": "https://softconf.com/n/rcar2023/",
+        "proceedings": "https://doi.org/10.1109/RCAR58764.2023",
+        "lat": 40.0768,
+        "lng": 113.3001,
+        "emoji": "🏯",
+        "tagline": "Datong",
+        "marker_class": "standard",
+        "focus_zoom": 5
+    },
+    {
+        "year": 2024,
+        "display": "IEEE RCAR 2024",
+        "city": "Ålesund, Norway",
+        "time": "June 24-28, 2024",
+        "website": "https://irmv.sjtu.edu.cn/rcar2024/#/",
+        "proceedings": "https://doi.org/10.1109/RCAR61438.2024",
+        "lat": 62.4722,
+        "lng": 6.1495,
+        "emoji": "⛵",
+        "tagline": "Ålesund",
+        "marker_class": "large",
+        "focus_zoom": 6
+    },
+    {
+        "year": 2025,
+        "display": "IEEE RCAR 2025",
+        "city": "Toyama, Japan",
+        "time": "June 1-6, 2025",
+        "website": "https://smartconf.jp/content/rcar2025/",
+        "proceedings": "https://doi.org/10.1109/RCAR65431.2025",
+        "lat": 36.6953,
+        "lng": 137.2113,
+        "emoji": "🌸",
+        "tagline": "Toyama",
+        "marker_class": "large",
+        "focus_zoom": 6
+    },
+    {
+        "year": 2026,
+        "display": "IEEE RCAR 2026",
+        "city": "Mahé, Seychelles",
+        "time": "August 15-21, 2026",
+        "website": "https://rcar2026.org",
+        "proceedings": "",
+        "lat": -4.62,
+        "lng": 55.43,
+        "emoji": "🌴",
+        "tagline": "Seychelles 2026",
+        "marker_class": "current",
+        "focus_zoom": 7
+    }
+];
+
+function buildPopup(item) {
+    var links = '<a href="' + item.website + '" target="_blank" rel="noopener noreferrer">Website</a>';
+    if (item.proceedings) {
+        links += '<a href="' + item.proceedings + '" target="_blank" rel="noopener noreferrer">Proceedings</a>';
+    }
+
+    return '' +
+        '<div class="popup-box">' +
+            '<div class="popup-sticker ' + (item.marker_class === 'current' ? 'current' : '') + '">' + item.emoji + '</div>' +
+            '<h4>' + item.display + '</h4>' +
+            '<p><strong>Location:</strong> ' + item.city + '</p>' +
+            '<p><strong>Time:</strong> ' + item.time + '</p>' +
+            '<p><strong>Theme tag:</strong> ' + item.tagline + '</p>' +
+            '<div class="popup-links">' + links + '</div>' +
+        '</div>';
+}
+
+function buildIcon(item) {
+    var cls = 'sticker-marker ' + (item.marker_class || 'standard');
+    var html = '' +
+        '<div class="' + cls + '">' +
+            '<div class="sticker-bubble">' + item.emoji + '</div>' +
+            '<div class="sticker-year">' + item.year + '</div>' +
+        '</div>';
+
+    var size = (item.marker_class === 'large' || item.marker_class === 'current') ? [78, 92] : [60, 74];
+    return L.divIcon({
+        className: 'sticker-marker-wrapper',
+        html: html,
+        iconSize: size,
+        iconAnchor: [size[0] / 2, size[1] - 6],
+        popupAnchor: [0, -size[1] + 10]
+    });
+}
+
+function initHistoryMap() {
+    if (typeof L === "undefined") {
+        document.getElementById("history-map").innerHTML =
+            '<div style="padding:30px;font-size:14pt;">Map could not be loaded.</div>';
+        return;
+    }
+
+    var focusBounds = L.latLngBounds(
+        [[-18, -20], [72, 155]]
+    );
+
+    var map = L.map("history-map", {
+        scrollWheelZoom: false,
+        worldCopyJump: false,
+        zoomSnap: 0.25,
+        zoomDelta: 0.5,
+        maxBounds: focusBounds.pad(0.08),
+        maxBoundsViscosity: 0.85
+    });
+
+    map.fitBounds(focusBounds, {
+        padding: [8, 8]
+    });
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 7,
+        minZoom: 2.5,
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    historyEvents.forEach(function(item) {
+        var marker = L.marker([item.lat, item.lng], {
+            icon: buildIcon(item),
+            riseOnHover: true
+        }).addTo(map);
+
+        marker.bindPopup(buildPopup(item));
+
+        marker.on('click', function() {
+            map.flyTo([item.lat, item.lng], item.focus_zoom || 5, {
+                animate: true,
+                duration: 1.2
+            });
+        });
+    });
+}
+
+initHistoryMap();
+</script>
 </body>
 </html>
